@@ -38,12 +38,12 @@
 </head>
 <body class="bg-black text-white h-screen flex flex-col items-center justify-center overflow-hidden font-netflix">
 
-  <!-- 🔊 Sound -->
+  <!-- 🔊 Netflix Sound -->
   <audio id="netflix-sound" preload="auto">
     <source src="netflix.mp3" type="audio/mpeg" />
   </audio>
 
-  <!-- 🔴 "MANASA" with animated N -->
+  <!-- 🔴 MANASA with animated N -->
   <div class="text-center">
     <h1 class="text-[60px] md:text-[80px] font-extrabold text-red-600 drop-shadow-[0_0_30px_#e50914] tracking-tight">
       <span>M</span>
@@ -63,12 +63,13 @@
     </a>
   </div>
 
-  <!-- Sound Sync & Optional Animation Chaining -->
+  <!-- Play Sound Logic -->
   <script>
     window.addEventListener('DOMContentLoaded', () => {
       const audio = document.getElementById('netflix-sound');
       setTimeout(() => {
         audio.play().catch(() => {
+          // fallback if autoplay is blocked
           document.body.addEventListener('click', () => {
             audio.play();
           }, { once: true });
