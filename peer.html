@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Peer | Manasa Sai Karanam</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .glow-box:hover {
+      box-shadow: 0 0 15px #e50914, 0 0 25px #e50914;
+      transform: scale(1.03);
+    }
+    .testimonial-card:hover {
+      box-shadow: 0 0 12px #e50914;
+      transform: translateY(-4px);
+    }
+    .photo-card:hover {
+      box-shadow: 0 0 12px #e50914;
+    }
+  </style>
+</head>
+<body class="bg-black text-white font-sans">
+
+  <!-- NAVBAR -->
+  <nav class="w-full flex items-center justify-between px-8 py-4 z-20 bg-black bg-opacity-70">
+    <div class="flex items-center gap-8">
+      <h1 class="text-2xl font-bold text-red-600 cursor-pointer" onclick="window.location.href='watching.html'">MANASA</h1>
+      <ul class="flex gap-6 text-sm text-gray-300">
+        <li><a href="recruiter.html" class="hover:text-white transition">Home</a></li>
+        <li><a href="professional.html" class="hover:text-white transition">Professional</a></li>
+        <li><a href="skills.html" class="hover:text-white transition">Skills</a></li>
+        <li><a href="projects.html" class="hover:text-white transition">Projects</a></li>
+        <li><a href="hireme.html" class="hover:text-white transition">Hire Me</a></li>
+      </ul>
+    </div>
+    <ul class="flex gap-6 text-sm text-gray-300">
+      <li><a href="https://github.com/manasa6sai" target="_blank" class="hover:text-white transition">GitHub</a></li>
+      <li><a href="https://linkedin.com/in/manasa-sai-karanam" target="_blank" class="hover:text-white transition">LinkedIn</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="h-[70vh] flex items-center justify-center flex-col text-center px-6 bg-[url('https://images.unsplash.com/photo-1503264116251-35a269479413?fit=crop&w=1950&q=80')] bg-cover bg-center">
+    <h2 class="text-5xl font-extrabold text-white mb-4 drop-shadow-lg">My Journey in Frames 🎞️</h2>
+    <p class="text-lg text-gray-200 max-w-xl">Beyond lines of code lies a trail of effort, teamwork, inspiration, and soul – captured in moments.</p>
+  </section>
+
+  <!-- MY JOURNEY TIMELINE STYLE GALLERY -->
+  <section class="px-6 md:px-12 py-16">
+    <h3 class="text-3xl font-bold text-red-500 mb-8 border-b border-red-700 pb-2 w-fit">Moments That Made Me</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <div class="bg-[#1e1e1e] p-4 rounded-lg photo-card">
+        <img src="https://images.unsplash.com/photo-1618244973784-27dd17f390b3?fit=crop&w=800&q=80" class="rounded mb-3 w-full" alt="UCF Journey" />
+        <p class="text-sm text-white">Living the dream as an international Master's student at UCF – growth, grind, and grace in every step.</p>
+      </div>
+      <div class="bg-[#1e1e1e] p-4 rounded-lg photo-card">
+        <img src="https://images.unsplash.com/photo-1592395976650-46e8b4570c4c?fit=crop&w=800&q=80" class="rounded mb-3 w-full" alt="SDE in Hyderabad" />
+        <p class="text-sm text-white">Days as an SDE in Hyderabad — learning, building, and evolving amid chai breaks and code pushes.</p>
+      </div>
+      <div class="bg-[#1e1e1e] p-4 rounded-lg photo-card">
+        <img src="https://images.unsplash.com/photo-1542546068979-21f9c4eaf5fb?fit=crop&w=800&q=80" class="rounded mb-3 w-full" alt="IIIT Sricity" />
+        <p class="text-sm text-white">Life at IIIT Sricity – from dorm-room brainstorms to research presentations, it all started here.</p>
+      </div>
+      <div class="bg-[#1e1e1e] p-4 rounded-lg photo-card">
+        <img src="https://images.unsplash.com/photo-1496483353456-90997957cf99?fit=crop&w=800&q=80" class="rounded mb-3 w-full" alt="Photography Page" />
+        <p class="text-sm text-white">My photography page – freezing stories in frames, finding art in the everyday.</p>
+      </div>
+      <div class="bg-[#1e1e1e] p-4 rounded-lg photo-card">
+        <img src="https://images.unsplash.com/photo-1601621881331-10a9de809c96?fit=crop&w=800&q=80" class="rounded mb-3 w-full" alt="Bharatanatyam" />
+        <p class="text-sm text-white">Grace, discipline, and rhythm – my Bharatnatyam days were soul in motion.</p>
+      </div>
+      <div class="bg-[#1e1e1e] p-4 rounded-lg photo-card">
+        <img src="https://images.unsplash.com/photo-1621440313971-0a3aa7202e34?fit=crop&w=800&q=80" class="rounded mb-3 w-full" alt="DePaul Schooling" />
+        <p class="text-sm text-white">DePaul High School – where it all began, with dreams as tiny as my uniform blazer.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="px-6 md:px-12 py-12">
+    <h3 class="text-3xl font-bold text-red-500 mb-8 border-b border-red-700 pb-2 w-fit">Words From My People</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <div class="bg-[#1a1a1a] p-4 rounded-lg testimonial-card">
+        <p class="text-sm italic">"Manasa brings life to every project – with code, creativity, and candid clicks!"</p>
+        <p class="text-xs text-gray-400 mt-2">— Peer from Hackathon</p>
+      </div>
+      <div class="bg-[#1a1a1a] p-4 rounded-lg testimonial-card">
+        <p class="text-sm italic">"Reliable, insightful, and someone who’ll always get things done with flair."</p>
+        <p class="text-xs text-gray-400 mt-2">— Project Teammate</p>
+      </div>
+      <div class="bg-[#1a1a1a] p-4 rounded-lg testimonial-card">
+        <p class="text-sm italic">"She doesn’t just debug code – she inspires the team."</p>
+        <p class="text-xs text-gray-400 mt-2">— Code Reviewer</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="text-center px-6 md:px-12 py-16 bg-[#121212]">
+    <h3 class="text-3xl font-bold text-white mb-4">Want to Connect as a Peer?</h3>
+    <p class="text-gray-400 mb-6">Whether you're a classmate, project mate, or fellow dreamer — let’s keep inspiring each other.</p>
+    <a href="mailto:manasakaranam6199@gmail.com" class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded transition">Say Hello</a>
+  </section>
+
+</body>
+</html>

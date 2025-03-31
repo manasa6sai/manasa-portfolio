@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional Journey | Manasa Sai Karanam</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .timeline-entry {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      margin-bottom: 4rem;
+      position: relative;
+    }
+    .timeline-entry.right {
+      flex-direction: row-reverse;
+    }
+    .timeline-content {
+      background-color: #1c1c1c;
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 10px rgba(229, 9, 20, 0.5);
+      width: 100%;
+      max-width: 500px;
+      border-left: 5px solid #e50914;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .timeline-content:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #e50914, 0 0 30px #e50914;
+    }
+    .timeline-line {
+      position: absolute;
+      top: 6rem;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 100%;
+      width: 4px;
+      background-color: #e50914;
+      z-index: 0;
+    }
+    .timeline-icon {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: 10;
+    }
+    @media screen and (max-width: 768px) {
+      .timeline-entry,
+      .timeline-entry.right {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .timeline-content {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body class="bg-black text-white font-sans">
+  <header class="bg-black shadow-lg p-4 flex items-center gap-10">
+<!-- NAVIGATION BAR -->
+<nav class="absolute top-0 left-0 w-full flex items-center justify-between px-8 py-4 z-20 bg-black bg-opacity-70">
+  <div class="flex items-center gap-8">
+    <a href="whos-watching.html" class="text-2xl font-bold text-red-600 hover:text-white transition">MANASA</a>
+    <ul class="flex gap-6 text-sm text-gray-300">
+      <li><a href="recruiter.html" class="hover:text-white transition">Home</a></li>
+      <li><a href="professional.html" class="hover:text-white transition">Professional</a></li>
+      <li><a href="skills.html" class="hover:text-white transition">Skills</a></li>
+      <li><a href="#projects" class="hover:text-white transition">Projects</a></li>
+      <li><a href="#hireme" class="hover:text-white transition">Hire Me</a></li>
+    </ul>
+  </div>
+  <ul class="flex gap-6 text-sm text-gray-300">
+    <li><a href="https://github.com/manasa6sai" target="_blank" class="hover:text-white transition">GitHub</a></li>
+    <li><a href="https://linkedin.com/in/manasa-sai-karanam" target="_blank" class="hover:text-white transition">LinkedIn</a></li>
+  </ul>
+</nav>
+
+  </header>
+
+  <section class="max-w-6xl mx-auto px-6 py-10 relative">
+    <h2 class="text-3xl font-bold text-white mb-20"><span class="text-[#e50914]">🗓️</span> Work Experience & Education Timeline</h2>
+    <div class="timeline-line"></div>
+
+    <div class="space-y-20 relative">
+
+      <div class="timeline-entry">
+        <div class="timeline-icon" style="top: 1.5rem; left: calc(50% - 20px); background-image: url('https://cdn-icons-png.flaticon.com/512/3022/3022635.png');"></div>
+        <div class="timeline-content bg-gradient-to-r from-blue-700 to-indigo-800">
+          <h3 class="text-xl font-bold">Graduate Assistant – Teaching & Research</h3>
+          <p class="text-gray-200 text-sm mb-1">UCF | Jan 2024 – Present</p>
+          <ul class="list-disc pl-5 mt-2 text-gray-100 text-sm">
+            <li>Assisted DBMS, SE courses.</li>
+            <li>Research in Fuzzing & CV.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-entry right">
+        <div class="timeline-icon" style="top: 1.5rem; left: calc(50% - 20px); background-image: url('https://cdn-icons-png.flaticon.com/512/899/899703.png');"></div>
+        <div class="timeline-content bg-gradient-to-r from-pink-600 to-red-500">
+          <h3 class="text-xl font-bold">Hackathon – Code to Give</h3>
+          <p class="text-gray-200 text-sm mb-1">Morgan Stanley | 2024</p>
+          <ul class="list-disc pl-5 mt-2 text-gray-100 text-sm">
+            <li>Built AI job matcher with Cohere.</li>
+            <li>Presented platform for Latino pros.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-entry">
+        <div class="timeline-icon" style="top: 1.5rem; left: calc(50% - 20px); background-image: url('https://cdn-icons-png.flaticon.com/512/1087/1087815.png');"></div>
+        <div class="timeline-content bg-gradient-to-r from-green-600 to-emerald-500">
+          <h3 class="text-xl font-bold">Software Development Engineer</h3>
+          <p class="text-gray-200 text-sm mb-1">Tanla | Sep 2021 – Dec 2023</p>
+          <ul class="list-disc pl-5 mt-2 text-gray-100 text-sm">
+            <li>Designed CPaaS backend in Golang.</li>
+            <li>Smart Contract APIs for preferences.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-entry right">
+        <div class="timeline-icon" style="top: 1.5rem; left: calc(50% - 20px); background-image: url('https://cdn-icons-png.flaticon.com/512/3659/3659733.png');"></div>
+        <div class="timeline-content bg-gradient-to-r from-yellow-500 to-orange-500">
+          <h3 class="text-xl font-bold">Software Engineer – Data Platforms</h3>
+          <p class="text-gray-200 text-sm mb-1">LTI | Jul 2020 – Sep 2021</p>
+          <ul class="list-disc pl-5 mt-2 text-gray-100 text-sm">
+            <li>Built AWS-Snowflake pipelines.</li>
+            <li>Insights via Tableau dashboards.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-entry">
+        <div class="timeline-icon" style="top: 1.5rem; left: calc(50% - 20px); background-image: url('https://cdn-icons-png.flaticon.com/512/190/190411.png');"></div>
+        <div class="timeline-content bg-gradient-to-r from-purple-700 to-fuchsia-600">
+          <h3 class="text-xl font-bold">B.Tech – Computer Engineering</h3>
+          <p class="text-gray-200 text-sm mb-1">IIIT Sri City | Aug 2020</p>
+          <ul class="list-disc pl-5 mt-2 text-gray-100 text-sm">
+            <li>Research at IEEE ACIT 2020.</li>
+            <li>Smart irrigation & blockchain work.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Who's Watching?</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#141414] text-white min-h-screen flex flex-col items-center justify-center font-sans">
+
+  <!-- Heading -->
+  <h1 class="text-4xl md:text-5xl font-semibold mb-12">Who's watching?</h1>
+
+  <!-- Profiles Grid -->
+  <div class="flex gap-10 flex-wrap justify-center">
+
+    <!-- Recruiter -->
+    <a href="recruiter.html" class="flex flex-col items-center group cursor-pointer">
+        <div class="w-28 h-28 rounded-md bg-gradient-to-b from-blue-400 to-blue-500 flex items-center justify-center relative">
+          <div class="absolute">
+            <!-- Eyes -->
+            <div class="flex justify-between w-10 mx-auto mt-4">
+              <div class="w-2 h-2 bg-white rounded-full"></div>
+              <div class="w-2 h-2 bg-white rounded-full"></div>
+            </div>
+            <!-- Smile -->
+            <div class="w-10 h-4 border-b-2 border-white rounded-b-full mt-6 mx-auto"></div>
+          </div>
+        </div>
+        <p class="text-sm mt-3 group-hover:text-gray-300">Recruiter</p>
+      </a>
+      
+    <!-- Peer -->
+    <div class="flex flex-col items-center group cursor-pointer">
+      <div class="w-28 h-28 rounded-md bg-gradient-to-b from-yellow-300 to-yellow-400 flex items-center justify-center relative">
+        <div class="absolute">
+          <div class="flex justify-between w-10 mx-auto mt-4">
+            <div class="w-2 h-2 bg-white rounded-full"></div>
+            <div class="w-2 h-2 bg-white rounded-full"></div>
+          </div>
+          <div class="w-10 h-4 border-b-2 border-white rounded-b-full mt-6 mx-auto"></div>
+        </div>
+      </div>
+      <p class="text-sm mt-3 group-hover:text-gray-300">Peer</p>
+    </div>
+
+    <!-- Mentor -->
+    <div class="flex flex-col items-center group cursor-pointer">
+      <div class="w-28 h-28 rounded-md bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 flex items-center justify-center relative">
+        <div class="absolute">
+          <div class="flex justify-between w-10 mx-auto mt-4">
+            <div class="w-2 h-2 bg-white rounded-full"></div>
+            <div class="w-2 h-2 bg-white rounded-full"></div>
+          </div>
+          <div class="w-10 h-4 border-b-2 border-white rounded-b-full mt-6 mx-auto"></div>
+        </div>
+      </div>
+      <p class="text-sm mt-3 group-hover:text-gray-300">Mentor</p>
+    </div>
+
+    <!-- Inquisitor -->
+    <div class="flex flex-col items-center group cursor-pointer">
+      <div class="w-28 h-28 rounded-md bg-red-600 flex items-center justify-center relative">
+        <div class="absolute">
+          <div class="flex justify-between w-10 mx-auto mt-4">
+            <div class="w-2 h-2 bg-white rounded-full"></div>
+            <div class="w-2 h-2 bg-white rounded-full"></div>
+          </div>
+          <div class="w-10 h-4 border-b-2 border-white rounded-b-full mt-6 mx-auto"></div>
+        </div>
+      </div>
+      <p class="text-sm mt-3 group-hover:text-gray-300">Inquisitor</p>
+    </div>
+
+    <!-- Add Profile -->
+    <div class="flex flex-col items-center group cursor-pointer">
+      <div class="w-28 h-28 bg-gray-700 rounded-full flex items-center justify-center">
+        <span class="text-4xl text-white">+</span>
+      </div>
+      <p class="text-sm mt-3 text-gray-400 group-hover:text-white">Add Profile</p>
+    </div>
+  </div>
+
+  <!-- Manage Profiles Button -->
+  <button class="mt-12 px-6 py-2 border border-gray-500 text-sm text-gray-300 hover:text-white hover:border-white transition">
+    Manage Profiles
+  </button>
+
+</body>
+</html>

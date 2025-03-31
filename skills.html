@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skills | Manasa Sai Karanam</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .skill-box {
+      background-color: #262222;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      aspect-ratio: 0.2 / 0.03;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      border-radius: 0.25rem;
+    }
+    .skill-box:hover {
+      box-shadow: 0 0 15px #e50914, 0 0 25px #e50914;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body class="bg-black text-white font-sans">
+
+  <!-- NAVBAR -->
+  <nav class="absolute top-0 left-0 w-full flex items-center justify-between px-8 py-4 z-20 bg-black bg-opacity-70">
+    <div class="flex items-center gap-8">
+        <a href="whos-watching.html" class="text-2xl font-bold text-red-600 hover:text-white transition">MANASA</a>
+        <ul class="flex gap-6 text-sm text-gray-300">
+        <li><a href="recruiter.html" class="hover:text-white transition">Home</a></li>
+        <li><a href="professional.html" class="hover:text-white transition">Professional</a></li>
+        <li><a href="skills.html" class="hover:text-white transition">Skills</a></li>
+        <li><a href="projects.html" class="hover:text-white transition">Projects</a></li>
+        <li><a href="hireme.html" class="hover:text-white transition">Hire Me</a></li>
+      </ul>
+    </div>
+    <ul class="flex gap-6 text-sm text-gray-300">
+      <li><a href="https://github.com/manasa6sai" target="_blank" class="hover:text-white transition">GitHub</a></li>
+      <li><a href="https://linkedin.com/in/manasa-sai-karanam" target="_blank" class="hover:text-white transition">LinkedIn</a></li>
+    </ul>
+  </nav>
+
+  <!-- SKILLS SECTION -->
+  <section class="pt-32 px-6 md:px-12">
+    <h3 class="text-3xl font-extrabold mb-6 text-red-500 tracking-wide border-b border-red-700 pb-2 w-fit">Tech Stack</h3>
+
+    <h4 class="text-xl font-bold mt-8 mb-4 text-red-500">Programming Languages</h4>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+      <div class="skill-box">Golang</div>
+      <div class="skill-box">Python</div>
+      <div class="skill-box">C</div>
+      <div class="skill-box">Java</div>
+    </div>
+
+    <h4 class="text-xl font-bold mt-8 mb-4 text-red-500">Frameworks & APIs</h4>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+      <div class="skill-box">Beego API</div>
+      <div class="skill-box">Gin</div>
+      <div class="skill-box">Django</div>
+      <div class="skill-box">Flask</div>
+      <div class="skill-box">FastAPI</div>
+      <div class="skill-box">React.js</div>
+    </div>
+
+    <h4 class="text-xl font-bold mt-8 mb-4 text-red-500">Databases</h4>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+      <div class="skill-box">MySQL</div>
+      <div class="skill-box">MongoDB</div>
+      <div class="skill-box">Aerospike</div>
+      <div class="skill-box">DynamoDB</div>
+      <div class="skill-box">Snowflake</div>
+      <div class="skill-box">HDFS</div>
+    </div>
+
+    <h4 class="text-xl font-bold mt-8 mb-4 text-red-500">Cloud & DevOps</h4>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+      <div class="skill-box">AWS</div>
+      <div class="skill-box">RabbitMQ</div>
+      <div class="skill-box">Docker</div>
+      <div class="skill-box">Kubernetes</div>
+      <div class="skill-box">Git</div>
+      <div class="skill-box">Linux</div>
+    </div>
+
+    <h4 class="text-xl font-bold mt-8 mb-4 text-red-500">Big Data</h4>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+      <div class="skill-box">Kafka</div>
+      <div class="skill-box">PySpark</div>
+    </div>
+
+    <h4 class="text-xl font-bold mt-8 mb-4 text-red-500">Others</h4>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-20">
+      <div class="skill-box">Blockchain</div>
+      <div class="skill-box">Smart Contracts</div>
+      <div class="skill-box">Unit-Testing</div>
+      <div class="skill-box">Tableau</div>
+      <div class="skill-box">HTML</div>
+      <div class="skill-box">CSS</div>
+      <div class="skill-box">JavaScript</div>
+    </div>
+  </section>
+
+</body>
+</html>

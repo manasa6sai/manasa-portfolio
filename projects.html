@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects | Manasa Sai Karanam</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+.project-card img {
+  height: 180px;       /* Fixed height for uniformity */
+  width: 100%;         /* Full width */
+  object-fit: cover;   /* Crop to fill area without distortion */
+  border-radius: 0.5rem; /* Optional: rounded corners */
+}
+
+    .project-card:hover {
+      box-shadow: 0 0 15px #e50914, 0 0 30px #e50914;
+    }
+  </style>
+</head>
+<body class="bg-black text-white font-sans">
+
+  <!-- NAVIGATION BAR -->
+  <nav class="w-full flex items-center justify-between px-8 py-4 z-20 bg-black bg-opacity-70">
+    <div class="flex items-center gap-8">
+        <a href="whos-watching.html" class="text-2xl font-bold text-red-600 hover:text-white transition">MANASA</a>
+      <ul class="flex gap-6 text-sm text-gray-300">
+        <li><a href="recruiter.html" class="hover:text-white transition">Home</a></li>
+        <li><a href="professional.html" class="hover:text-white transition">Professional</a></li>
+        <li><a href="skills.html" class="hover:text-white transition">Skills</a></li>
+        <li><a href="projects.html" class="hover:text-white transition">Projects</a></li>
+        <li><a href="hireme.html" class="hover:text-white transition">Hire Me</a></li>
+      </ul>
+    </div>
+    <ul class="flex gap-6 text-sm text-gray-300">
+      <li><a href="https://github.com/manasa6sai" target="_blank" class="hover:text-white transition">GitHub</a></li>
+      <li><a href="https://linkedin.com/in/manasa-sai-karanam" target="_blank" class="hover:text-white transition">LinkedIn</a></li>
+    </ul>
+  </nav>
+
+  <!-- PROJECTS SECTION -->
+  <section class="px-6 md:px-12 py-10">
+    <h2 class="text-3xl font-extrabold text-red-500 border-b border-red-700 pb-2 w-fit mb-8">Top Projects</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <div class="bg-[#1a1a1a] rounded-lg shadow-lg p-4 project-card">
+        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?fit=crop&w=600&q=80" class="rounded-md mb-3 w-full" alt="AI Job Matcher"/>
+        <h3 class="text-lg font-semibold text-red-400">AI Job Recommendation System</h3>
+        <p class="text-sm text-gray-300 mb-2">Built for Morgan Stanley Hackathon using FastAPI, Cohere API.</p>
+        <div class="flex flex-wrap gap-2 mt-auto">
+          <span class="bg-gray-700 text-xs px-2 py-1 rounded">Python</span>
+          <span class="bg-gray-700 text-xs px-2 py-1 rounded">FastAPI</span>
+          <span class="bg-gray-700 text-xs px-2 py-1 rounded">Cohere</span>
+        </div>
+      </div>
+
+      <div class="bg-[#1f2235] rounded-lg shadow-lg p-4 project-card">
+        <img src="https://www.dropicts.com/wp-content/uploads/From-Black-White-to-Color-Exploring-Fascinating-Benefits-of-Photo-Colorizing.jpg" class="rounded-md mb-3 w-full" alt="Video Restoration"/>
+        <h3 class="text-lg font-semibold text-red-400">AI Historical Video Restoration</h3>
+        <p class="text-sm text-gray-300 mb-2">Enhanced old videos using DL models for resolution and colorization.</p>
+        <div class="flex flex-wrap gap-2 mt-auto">
+          <span class="bg-gray-700 text-xs px-2 py-1 rounded">Computer Vision</span>
+          <span class="bg-gray-700 text-xs px-2 py-1 rounded">PyTorch</span>
+        </div>
+      </div>
+
+      <div class="bg-[#2c2b3c] rounded-lg shadow-lg p-4 project-card">
+        <img src="https://www.endress.com/__image/a/9341618/k/4450d62f2c50d24f37ab09c357366a6bf05419f9/ar/16-9/w/771/t/jpg/b/ffffff/n/true/fn/smart%20water%20network%20management.jpg" class="rounded-md mb-3 w-full" alt="ZJS Water Framework"/>
+        <h3 class="text-lg font-semibold text-red-400">ZJS Smart Water Framework</h3>
+        <p class="text-sm text-gray-300 mb-2">Optimized water flow using AI & satellite imagery – IEEE ACIT 2020.</p>
+        <div class="flex flex-wrap gap-2 mt-auto">
+          <span class="bg-gray-700 text-xs px-2 py-1 rounded">AI</span>
+          <span class="bg-gray-700 text-xs px-2 py-1 rounded">Satellite Imagery</span>
+          <span class="bg-gray-700 text-xs px-2 py-1 rounded">Optimization</span>
+        </div>
+      </div>
+
+      <div class="bg-[#1e2f3a] rounded-lg shadow-lg p-4 project-card">
+        <img src="https://www.bolton365.net/wp-content/uploads/2021/01/cache-scaled-3.jpg" class="rounded-md mb-3 w-full" alt="Cache Simulator"/>
+        <h3 class="text-lg font-semibold text-red-400">Adaptive Cache Simulator</h3>
+        <p class="text-sm text-gray-300 mb-2">Simulated cache behavior using logical segmentation in C++.</p>
+        <div class="flex flex-wrap gap-2 mt-auto">
+          <span class="bg-gray-700 text-xs px-2 py-1 rounded">C++</span>
+          <span class="bg-gray-700 text-xs px-2 py-1 rounded">System Design</span>
+        </div>
+      </div>
+
+      <div class="bg-[#31243e] rounded-lg shadow-lg p-4 project-card">
+        <img src="https://miro.medium.com/v2/resize:fit:1024/1*e2dPfigAUXeBTE_1QxzTbA.png" class="rounded-md mb-3 w-full" alt="Depression Detection"/>
+        <h3 class="text-lg font-semibold text-red-400">AI-based Depression Detection</h3>
+        <p class="text-sm text-gray-300 mb-2">Built ML models to detect depressive signals from speech & text.</p>
+        <div class="flex flex-wrap gap-2 mt-auto">
+          <span class="bg-gray-700 text-xs px-2 py-1 rounded">ML</span>
+          <span class="bg-gray-700 text-xs px-2 py-1 rounded">Speech</span>
+          <span class="bg-gray-700 text-xs px-2 py-1 rounded">NLP</span>
+        </div>
+      </div>
+
+      <div class="bg-[#203037] rounded-lg shadow-lg p-4 project-card">
+        <img src="https://d32ijn7u0aqfv4.cloudfront.net/wp/wp-content/uploads/raw/SOBK0422040_780x440_mobile.jpeg" class="rounded-md mb-3 w-full" alt="FastAPI Banking API" />
+        <h3 class="text-lg font-semibold text-red-400">Banking API with FastAPI</h3>
+        <p class="text-sm text-gray-300 mb-2">
+          Developed a secure banking API with role-based access, JWT auth, and transaction handling using FastAPI.
+        </p>
+        <div class="flex flex-wrap gap-2 mt-auto">
+          <span class="bg-gray-700 text-xs px-2 py-1 rounded">FastAPI</span>
+          <span class="bg-gray-700 text-xs px-2 py-1 rounded">JWT</span>
+          <span class="bg-gray-700 text-xs px-2 py-1 rounded">OAuth2</span>
+          <span class="bg-gray-700 text-xs px-2 py-1 rounded">Banking APIs</span>
+        </div>
+      </div>
+
+      <div class="bg-[#1f1f2e] rounded-lg shadow-lg p-4 project-card">
+        <img src="https://media.licdn.com/dms/image/D4E12AQEKoLjLQrl4ew/article-cover_image-shrink_720_1280/0/1710496936561?e=2147483647&v=beta&t=iRBqnSNFOkZYuxLQBj9yvBfqGHu22zwYlR4-c-YVOkU" class="rounded-md mb-3 w-full" alt="Event Logs with Gin" />
+        <h3 class="text-lg font-semibold text-red-400">Event Logs Trail System</h3>
+        <p class="text-sm text-gray-300 mb-2">
+          Built a log trail system to capture audit events using Golang, Gin framework, and CSV/MySQL-based storage.
+        </p>
+        <div class="flex flex-wrap gap-2 mt-auto">
+          <span class="bg-gray-700 text-xs px-2 py-1 rounded">Golang</span>
+          <span class="bg-gray-700 text-xs px-2 py-1 rounded">Gin</span>
+          <span class="bg-gray-700 text-xs px-2 py-1 rounded">CSV</span>
+          <span class="bg-gray-700 text-xs px-2 py-1 rounded">MySQL</span>
+        </div>
+      </div>
+
+      <div class="bg-[#2b1f2f] rounded-lg shadow-lg p-4 project-card">
+        <img src="https://img.freepik.com/premium-vector/ticket-travel-online-booking-service-app-smartphone-template-hand-drawn-cartoon-flat-illustration_2175-7175.jpg?semt=ais_hybrid" class="rounded-md mb-3 w-full" alt="ShowOClock Platform" />
+        <h3 class="text-lg font-semibold text-red-400">ShowOClock - Ticketing Platform</h3>
+        <p class="text-sm text-gray-300 mb-2">
+          Built a scalable ticket booking platform for events using Python backend and designed user-centric UI with Figma.
+        </p>
+        <div class="flex flex-wrap gap-2 mt-auto">
+          <span class="bg-gray-700 text-xs px-2 py-1 rounded">Python</span>
+          <span class="bg-gray-700 text-xs px-2 py-1 rounded">Figma</span>
+          <span class="bg-gray-700 text-xs px-2 py-1 rounded">MySQL</span>
+          <span class="bg-gray-700 text-xs px-2 py-1 rounded">HTML/CSS</span>
+        </div>
+      </div>
+      
+      
+      
+
+    </div>
+  </section>
+</body>
+</html>
