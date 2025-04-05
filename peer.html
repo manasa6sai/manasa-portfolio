@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Peer | Manasa Sai Karanam</title>
   <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
     .glow-box:hover {
       box-shadow: 0 0 15px #e50914, 0 0 25px #e50914;
@@ -17,16 +18,35 @@
     .photo-card:hover {
       box-shadow: 0 0 12px #e50914;
     }
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+    .float-animate {
+      animation: floaty 3s ease-in-out infinite;
+    }
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+    .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
   </style>
+
+  <!-- AOS Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
+
 <body class="bg-black text-white font-sans">
 
   <!-- NAVBAR -->
   <nav class="w-full flex items-center justify-between px-8 py-4 z-20 bg-black bg-opacity-70">
     <div class="flex items-center gap-8">
-      <h1 class="text-2xl font-bold text-red-600 cursor-pointer" onclick="window.location.href='watching.html'">MANASA</h1>
+      <a href="whos-watching.html" class="text-2xl font-bold text-red-600 hover:text-white transition">MANASA</a>
       <ul class="flex gap-6 text-sm text-gray-300">
-        <li><a href="recruiter.html" class="hover:text-white transition">Home</a></li>
+        <li><a href="peer.html" class="hover:text-white transition">Home</a></li>
         <li><a href="professional.html" class="hover:text-white transition">Professional</a></li>
         <li><a href="skills.html" class="hover:text-white transition">Skills</a></li>
         <li><a href="projects.html" class="hover:text-white transition">Projects</a></li>
@@ -45,33 +65,85 @@
     <p class="text-lg text-gray-200 max-w-xl">Beyond lines of code lies a trail of effort, teamwork, inspiration, and soul – captured in moments.</p>
   </section>
 
-  <!-- MY JOURNEY TIMELINE STYLE GALLERY -->
+  <!-- TIMELINE CARDS -->
   <section class="px-6 md:px-12 py-16">
-    <h3 class="text-3xl font-bold text-red-500 mb-8 border-b border-red-700 pb-2 w-fit">Moments That Made Me</h3>
+    <h3 class="text-3xl font-bold text-red-500 mb-8 border-b border-red-700 pb-2 w-fit" data-aos="fade-down">Moments That Made Me</h3>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-      <div class="bg-[#1e1e1e] p-4 rounded-lg photo-card">
-        <img src="https://images.unsplash.com/photo-1618244973784-27dd17f390b3?fit=crop&w=800&q=80" class="rounded mb-3 w-full" alt="UCF Journey" />
-        <p class="text-sm text-white">Living the dream as an international Master's student at UCF – growth, grind, and grace in every step.</p>
+
+      <!-- CARD 1: UCF -->
+      <div class="bg-gradient-to-br from-purple-900 to-black p-6 rounded-lg photo-card float-animate transition duration-500 hover:scale-105 hover:shadow-[0_0_20px_#e50914]" data-aos="zoom-in">
+        <div class="relative w-full h-64 overflow-hidden rounded mb-4">
+          <img id="ucfImage" src="images/p1.jpeg" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-100" />
+        </div>
+        <p class="text-base text-white">Living the dream as an international Master's student at UCF – growth, grind, and grace in every step.</p>
       </div>
-      <div class="bg-[#1e1e1e] p-4 rounded-lg photo-card">
-        <img src="https://images.unsplash.com/photo-1592395976650-46e8b4570c4c?fit=crop&w=800&q=80" class="rounded mb-3 w-full" alt="SDE in Hyderabad" />
-        <p class="text-sm text-white">Days as an SDE in Hyderabad — learning, building, and evolving amid chai breaks and code pushes.</p>
+
+      <!-- CARD 2: Tanla -->
+      <div class="bg-gradient-to-br from-pink-900 to-black p-6 rounded-lg photo-card float-animate transition duration-500 hover:scale-105 hover:shadow-[0_0_20px_#e50914]" data-aos="zoom-in" data-aos-delay="100">
+        <div class="relative w-full h-64 overflow-hidden rounded mb-4">
+          <img id="tanlaImage" src="images/t1.jpeg" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-100" />
+        </div>
+        <p class="text-base text-white">My journey at Tanla Platforms – architecting real-time systems, sipping chai with teammates, and coding with passion.</p>
       </div>
-      <div class="bg-[#1e1e1e] p-4 rounded-lg photo-card">
-        <img src="https://images.unsplash.com/photo-1542546068979-21f9c4eaf5fb?fit=crop&w=800&q=80" class="rounded mb-3 w-full" alt="IIIT Sricity" />
-        <p class="text-sm text-white">Life at IIIT Sricity – from dorm-room brainstorms to research presentations, it all started here.</p>
+
+      <!-- CARD 3: IIIT -->
+      <div class="bg-gradient-to-br from-blue-900 to-black p-6 rounded-lg photo-card float-animate transition duration-500 hover:scale-105 hover:shadow-[0_0_20px_#e50914]" data-aos="zoom-in" data-aos-delay="200">
+        <div class="relative w-full h-64 overflow-hidden rounded mb-4">
+          <img id="iiitImage" src="images/s4.jpeg" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-100" />
+        </div>
+        <p class="text-base text-white">Life at IIIT Sricity – from dorm-room brainstorms to research presentations, it all started here.</p>
       </div>
-      <div class="bg-[#1e1e1e] p-4 rounded-lg photo-card">
-        <img src="https://images.unsplash.com/photo-1496483353456-90997957cf99?fit=crop&w=800&q=80" class="rounded mb-3 w-full" alt="Photography Page" />
-        <p class="text-sm text-white">My photography page – freezing stories in frames, finding art in the everyday.</p>
-      </div>
-      <div class="bg-[#1e1e1e] p-4 rounded-lg photo-card">
-        <img src="https://images.unsplash.com/photo-1601621881331-10a9de809c96?fit=crop&w=800&q=80" class="rounded mb-3 w-full" alt="Bharatanatyam" />
-        <p class="text-sm text-white">Grace, discipline, and rhythm – my Bharatnatyam days were soul in motion.</p>
-      </div>
-      <div class="bg-[#1e1e1e] p-4 rounded-lg photo-card">
-        <img src="https://images.unsplash.com/photo-1621440313971-0a3aa7202e34?fit=crop&w=800&q=80" class="rounded mb-3 w-full" alt="DePaul Schooling" />
-        <p class="text-sm text-white">DePaul High School – where it all began, with dreams as tiny as my uniform blazer.</p>
+
+    </div>
+  </section>
+
+  <!-- PHOTOGRAPHY SECTION (Full Width) -->
+  <section class="w-full py-16 bg-black">
+    <h3 class="text-3xl font-bold text-red-500 mb-6 border-b border-red-700 pb-2 w-fit mx-6 md:mx-12">My Best Shots 📷</h3>
+    <div class="overflow-x-auto overflow-y-hidden w-full">
+      <div class="flex gap-6 snap-x snap-mandatory scroll-smooth overflow-x-scroll scrollbar-hide px-0">
+        <div class="flex-shrink-0 snap-start w-[400px] h-[250px] rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-500">
+          <img src="images/l1.jpeg" alt="Shot 1" class="w-full h-full object-cover" />
+        </div>
+        <div class="flex-shrink-0 snap-start w-[400px] h-[250px] rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-500">
+          <img src="images/l2.jpeg" alt="Shot 2" class="w-full h-full object-cover" />
+        </div>
+        <div class="flex-shrink-0 snap-start w-[400px] h-[250px] rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-500">
+          <img src="images/l3.jpeg" alt="Shot 3" class="w-full h-full object-cover" />
+        </div>
+        <div class="flex-shrink-0 snap-start w-[400px] h-[250px] rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-500">
+          <img src="images/l4.jpeg" alt="Shot 4" class="w-full h-full object-cover" />
+        </div>
+        <div class="flex-shrink-0 snap-start w-[400px] h-[250px] rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-500">
+          <img src="images/l5.jpeg" alt="Shot 4" class="w-full h-full object-cover" />
+        </div>
+        <div class="flex-shrink-0 snap-start w-[400px] h-[250px] rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-500">
+          <img src="images/l6.jpeg" alt="Shot 4" class="w-full h-full object-cover" />
+        </div>
+        <div class="flex-shrink-0 snap-start w-[400px] h-[250px] rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-500">
+          <img src="images/l7.jpeg" alt="Shot 4" class="w-full h-full object-cover" />
+        </div>
+
+        <div class="flex-shrink-0 snap-start w-[400px] h-[250px] rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-500">
+          <img src="images/l8.jpeg" alt="Shot 4" class="w-full h-full object-cover" />
+        </div>
+
+        <div class="flex-shrink-0 snap-start w-[400px] h-[250px] rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-500">
+          <img src="images/l9.jpeg" alt="Shot 4" class="w-full h-full object-cover" />
+        </div>
+
+        <div class="flex-shrink-0 snap-start w-[400px] h-[250px] rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-500">
+          <img src="images/l10.jpeg" alt="Shot 4" class="w-full h-full object-cover" />
+        </div>
+
+        <div class="flex-shrink-0 snap-start w-[400px] h-[250px] rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-500">
+          <img src="images/l11.jpeg" alt="Shot 4" class="w-full h-full object-cover" />
+        </div>
+
+
+        <div class="flex-shrink-0 snap-start w-[400px] h-[250px] rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-500">
+          <img src="images/l12.jpeg" alt="Shot 4" class="w-full h-full object-cover" />
+        </div>
       </div>
     </div>
   </section>
@@ -101,6 +173,56 @@
     <p class="text-gray-400 mb-6">Whether you're a classmate, project mate, or fellow dreamer — let’s keep inspiring each other.</p>
     <a href="mailto:manasakaranam6199@gmail.com" class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded transition">Say Hello</a>
   </section>
+
+  <!-- CAROUSEL SCRIPTS -->
+  <script>
+    AOS.init({ duration: 800, once: true });
+
+    // UCF
+    const ucfImages = ['images/p1.jpeg', 'images/p2.jpeg', 'images/p3.jpeg', 'images/p4.jpeg'];
+    let currentImg = 0;
+    setInterval(() => {
+      currentImg = (currentImg + 1) % ucfImages.length;
+      const imgEl = document.getElementById('ucfImage');
+      imgEl.classList.remove('opacity-100');
+      imgEl.classList.add('opacity-0');
+      setTimeout(() => {
+        imgEl.src = ucfImages[currentImg];
+        imgEl.classList.remove('opacity-0');
+        imgEl.classList.add('opacity-100');
+      }, 500);
+    }, 3000);
+
+    // Tanla
+    const tanlaImages = ['images/t1.jpeg', 'images/t2.jpeg', 'images/t3.jpeg', 'images/t4.jpeg'];
+    let currentTanla = 0;
+    setInterval(() => {
+      currentTanla = (currentTanla + 1) % tanlaImages.length;
+      const imgEl = document.getElementById('tanlaImage');
+      imgEl.classList.remove('opacity-100');
+      imgEl.classList.add('opacity-0');
+      setTimeout(() => {
+        imgEl.src = tanlaImages[currentTanla];
+        imgEl.classList.remove('opacity-0');
+        imgEl.classList.add('opacity-100');
+      }, 500);
+    }, 3000);
+
+    // IIIT
+    const iiitImages = ['images/s4.jpeg', 'images/s5.jpeg', 'images/s6.jpeg', 'images/s1.jpeg'];
+    let currentIIIT = 0;
+    setInterval(() => {
+      currentIIIT = (currentIIIT + 1) % iiitImages.length;
+      const imgEl = document.getElementById('iiitImage');
+      imgEl.classList.remove('opacity-100');
+      imgEl.classList.add('opacity-0');
+      setTimeout(() => {
+        imgEl.src = iiitImages[currentIIIT];
+        imgEl.classList.remove('opacity-0');
+        imgEl.classList.add('opacity-100');
+      }, 500);
+    }, 3000);
+  </script>
 
 </body>
 </html>

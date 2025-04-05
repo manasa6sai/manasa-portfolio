@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mentor | Manasa Sai Karanam</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    .glow-box:hover {
+      box-shadow: 0 0 15px #e50914, 0 0 25px #e50914;
+      transform: scale(1.03);
+    }
+    .testimonial-card:hover {
+      box-shadow: 0 0 12px #e50914;
+      transform: translateY(-4px);
+    }
+    .photo-card:hover {
+      box-shadow: 0 0 12px #e50914;
+    }
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+    .float-animate {
+      animation: floaty 3s ease-in-out infinite;
+    }
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+    .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+
+  <!-- AOS Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</head>
+
+<body class="bg-black text-white font-sans">
+
+  <!-- NAVBAR -->
+  <nav class="w-full flex items-center justify-between px-8 py-4 z-20 bg-black bg-opacity-70">
+    <div class="flex items-center gap-8">
+      <a href="whos-watching.html" class="text-2xl font-bold text-red-600 hover:text-white transition">MANASA</a>
+      <ul class="flex gap-6 text-sm text-gray-300">
+        <li><a href="peer.html" class="hover:text-white transition">Peer</a></li>
+        <li><a href="mentor.html" class="text-white underline">Mentor</a></li>
+        <li><a href="recruiter.html" class="hover:text-white transition">Recruiter</a></li>
+        <li><a href="inquisitor.html" class="hover:text-white transition">Inquisitor</a></li>
+      </ul>
+    </div>
+    <ul class="flex gap-6 text-sm text-gray-300">
+      <li><a href="https://github.com/manasa6sai" target="_blank" class="hover:text-white transition">GitHub</a></li>
+      <li><a href="https://linkedin.com/in/manasa-sai-karanam" target="_blank" class="hover:text-white transition">LinkedIn</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="h-[70vh] flex items-center justify-center flex-col text-center px-6 bg-[url('https://images.unsplash.com/photo-1531496651412-ecf2f4b97223?fit=crop&w=1950&q=80')] bg-cover bg-center">
+    <h2 class="text-5xl font-extrabold text-white mb-4 drop-shadow-lg">Mentorship Moments 🎓</h2>
+    <p class="text-lg text-gray-200 max-w-xl">Celebrating the people who shaped me, and those I had the privilege to guide.</p>
+  </section>
+
+  <!-- TIMELINE STYLE MENTOR CARDS -->
+  <section class="px-6 md:px-12 py-16">
+    <h3 class="text-3xl font-bold text-red-500 mb-8 border-b border-red-700 pb-2 w-fit" data-aos="fade-down">Guides Who Shaped Me</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+
+      <!-- CARD 1 -->
+      <div class="bg-gradient-to-br from-gray-800 to-black p-6 rounded-lg photo-card float-animate transition duration-500 hover:scale-105 hover:shadow-[0_0_20px_#e50914]" data-aos="zoom-in">
+        <div class="relative w-full h-64 overflow-hidden rounded mb-4">
+          <img src="images/mentor1.jpeg" class="absolute inset-0 w-full h-full object-cover" />
+        </div>
+        <p class="text-base text-white">Prof. Radhika: The first to show me that problem-solving is an art. Her faith lit my early path.</p>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="bg-gradient-to-br from-red-900 to-black p-6 rounded-lg photo-card float-animate transition duration-500 hover:scale-105 hover:shadow-[0_0_20px_#e50914]" data-aos="zoom-in" data-aos-delay="100">
+        <div class="relative w-full h-64 overflow-hidden rounded mb-4">
+          <img src="images/mentor2.jpeg" class="absolute inset-0 w-full h-full object-cover" />
+        </div>
+        <p class="text-base text-white">Industry Mentor: Showed me how to stay grounded while leading with clarity and conviction.</p>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="bg-gradient-to-br from-blue-900 to-black p-6 rounded-lg photo-card float-animate transition duration-500 hover:scale-105 hover:shadow-[0_0_20px_#e50914]" data-aos="zoom-in" data-aos-delay="200">
+        <div class="relative w-full h-64 overflow-hidden rounded mb-4">
+          <img src="images/mentor3.jpeg" class="absolute inset-0 w-full h-full object-cover" />
+        </div>
+        <p class="text-base text-white">Peer Mentoring: Nothing more rewarding than helping a friend land their first internship.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MENTORSHIP MOMENTS PHOTO ROW (Full Width) -->
+  <section class="w-full py-16 bg-black">
+    <h3 class="text-3xl font-bold text-red-500 mb-6 border-b border-red-700 pb-2 w-fit mx-6 md:mx-12">Mentorship in Action 💬</h3>
+    <div class="overflow-x-auto overflow-y-hidden w-full">
+      <div class="flex gap-6 snap-x snap-mandatory scroll-smooth overflow-x-scroll scrollbar-hide px-0">
+        <div class="flex-shrink-0 snap-start w-[400px] h-[250px] rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-500">
+          <img src="images/m1.jpeg" alt="Moment 1" class="w-full h-full object-cover" />
+        </div>
+        <div class="flex-shrink-0 snap-start w-[400px] h-[250px] rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-500">
+          <img src="images/m2.jpeg" alt="Moment 2" class="w-full h-full object-cover" />
+        </div>
+        <div class="flex-shrink-0 snap-start w-[400px] h-[250px] rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-500">
+          <img src="images/m3.jpeg" alt="Moment 3" class="w-full h-full object-cover" />
+        </div>
+        <div class="flex-shrink-0 snap-start w-[400px] h-[250px] rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-500">
+          <img src="images/m4.jpeg" alt="Moment 4" class="w-full h-full object-cover" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="px-6 md:px-12 py-12">
+    <h3 class="text-3xl font-bold text-red-500 mb-8 border-b border-red-700 pb-2 w-fit">Echoes from the Journey</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <div class="bg-[#1a1a1a] p-4 rounded-lg testimonial-card">
+        <p class="text-sm italic">"She mentored me not with answers, but with the right questions — and that made all the difference."</p>
+        <p class="text-xs text-gray-400 mt-2">— Mentee, Python Bootcamp</p>
+      </div>
+      <div class="bg-[#1a1a1a] p-4 rounded-lg testimonial-card">
+        <p class="text-sm italic">"She listens with intent and leads with purpose. A mentor who makes you feel seen."</p>
+        <p class="text-xs text-gray-400 mt-2">— Junior Developer</p>
+      </div>
+      <div class="bg-[#1a1a1a] p-4 rounded-lg testimonial-card">
+        <p class="text-sm italic">"Her mentorship didn’t just make me better technically — it made me believe in myself."</p>
+        <p class="text-xs text-gray-400 mt-2">— Undergraduate Mentee</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="text-center px-6 md:px-12 py-16 bg-[#121212]">
+    <h3 class="text-3xl font-bold text-white mb-4">Want to Collaborate or Connect?</h3>
+    <p class="text-gray-400 mb-6">Let’s build, guide, and grow together — across boundaries and titles.</p>
+    <a href="mailto:manasakaranam6199@gmail.com" class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded transition">Reach Out</a>
+  </section>
+
+  <script>
+    AOS.init({ duration: 800, once: true });
+  </script>
+
+</body>
+</html>
