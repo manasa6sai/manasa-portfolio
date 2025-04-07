@@ -5,22 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mentor | Manasa Sai Karanam</title>
   <script src="https://cdn.tailwindcss.com"></script>
-
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
   <style>
-    .glow-box:hover {
-      box-shadow: 0 0 15px #e50914, 0 0 25px #e50914;
-      transform: scale(1.03);
-    }
-    .testimonial-card:hover {
-      box-shadow: 0 0 12px #e50914;
-      transform: translateY(-4px);
-    }
-    .photo-card:hover {
-      box-shadow: 0 0 12px #e50914;
+    * {
+      cursor: url('https://cdn-icons-png.flaticon.com/512/1998/1998615.png') 16 16, auto;
     }
     @keyframes floaty {
       0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-6px); }
+      50% { transform: translateY(-10px); }
     }
     .float-animate {
       animation: floaty 3s ease-in-out infinite;
@@ -32,24 +25,36 @@
       -ms-overflow-style: none;
       scrollbar-width: none;
     }
+    .glass {
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      background-color: rgba(17, 25, 40, 0.65);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    #tsparticles {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      top: 0;
+      left: 0;
+    }
   </style>
-
-  <!-- AOS Library -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 
 <body class="bg-black text-white font-sans">
+  <div id="tsparticles"></div>
 
-  <!-- NAVBAR -->
   <nav class="w-full flex items-center justify-between px-8 py-4 z-20 bg-black bg-opacity-70">
     <div class="flex items-center gap-8">
       <a href="whos-watching.html" class="text-2xl font-bold text-red-600 hover:text-white transition">MANASA</a>
       <ul class="flex gap-6 text-sm text-gray-300">
-        <li><a href="peer.html" class="hover:text-white transition">Peer</a></li>
-        <li><a href="mentor.html" class="text-white underline">Mentor</a></li>
-        <li><a href="recruiter.html" class="hover:text-white transition">Recruiter</a></li>
-        <li><a href="inquisitor.html" class="hover:text-white transition">Inquisitor</a></li>
+        <li><a href="peer.html" class="hover:text-white transition">Home</a></li>
+        <li><a href="professional.html" class="hover:text-white transition">Professional</a></li>
+        <li><a href="skills.html" class="hover:text-white transition">Skills</a></li>
+        <li><a href="projects.html" class="hover:text-white transition">Projects</a></li>
+        <li><a href="hireme.html" class="hover:text-white transition">Hire Me</a></li>
       </ul>
     </div>
     <ul class="flex gap-6 text-sm text-gray-300">
@@ -58,94 +63,92 @@
     </ul>
   </nav>
 
-  <!-- HERO -->
-  <section class="h-[70vh] flex items-center justify-center flex-col text-center px-6 bg-[url('https://images.unsplash.com/photo-1531496651412-ecf2f4b97223?fit=crop&w=1950&q=80')] bg-cover bg-center">
-    <h2 class="text-5xl font-extrabold text-white mb-4 drop-shadow-lg">Mentorship Moments 🎓</h2>
-    <p class="text-lg text-gray-200 max-w-xl">Celebrating the people who shaped me, and those I had the privilege to guide.</p>
+  <section class="h-[90vh] flex items-center justify-center flex-col text-center bg-transparent relative">
+    <h1 class="text-5xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-red-500 via-pink-500 to-purple-500 animate-pulse mb-4">Mentorship in Motion</h1>
+    <p class="text-gray-300 max-w-xl px-4 text-lg">A journey of shared growth, where each question leads to learning — and every conversation creates change.</p>
   </section>
 
-  <!-- TIMELINE STYLE MENTOR CARDS -->
-  <section class="px-6 md:px-12 py-16">
-    <h3 class="text-3xl font-bold text-red-500 mb-8 border-b border-red-700 pb-2 w-fit" data-aos="fade-down">Guides Who Shaped Me</h3>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-
-      <!-- CARD 1 -->
-      <div class="bg-gradient-to-br from-gray-800 to-black p-6 rounded-lg photo-card float-animate transition duration-500 hover:scale-105 hover:shadow-[0_0_20px_#e50914]" data-aos="zoom-in">
-        <div class="relative w-full h-64 overflow-hidden rounded mb-4">
-          <img src="images/mentor1.jpeg" class="absolute inset-0 w-full h-full object-cover" />
-        </div>
-        <p class="text-base text-white">Prof. Radhika: The first to show me that problem-solving is an art. Her faith lit my early path.</p>
-      </div>
-
-      <!-- CARD 2 -->
-      <div class="bg-gradient-to-br from-red-900 to-black p-6 rounded-lg photo-card float-animate transition duration-500 hover:scale-105 hover:shadow-[0_0_20px_#e50914]" data-aos="zoom-in" data-aos-delay="100">
-        <div class="relative w-full h-64 overflow-hidden rounded mb-4">
-          <img src="images/mentor2.jpeg" class="absolute inset-0 w-full h-full object-cover" />
-        </div>
-        <p class="text-base text-white">Industry Mentor: Showed me how to stay grounded while leading with clarity and conviction.</p>
-      </div>
-
-      <!-- CARD 3 -->
-      <div class="bg-gradient-to-br from-blue-900 to-black p-6 rounded-lg photo-card float-animate transition duration-500 hover:scale-105 hover:shadow-[0_0_20px_#e50914]" data-aos="zoom-in" data-aos-delay="200">
-        <div class="relative w-full h-64 overflow-hidden rounded mb-4">
-          <img src="images/mentor3.jpeg" class="absolute inset-0 w-full h-full object-cover" />
-        </div>
-        <p class="text-base text-white">Peer Mentoring: Nothing more rewarding than helping a friend land their first internship.</p>
-      </div>
-
+  <section class="py-10 px-6 md:px-12 bg-black bg-opacity-80">
+    <div class="flex flex-col items-center text-center max-w-xl mx-auto glass p-8 rounded-xl shadow-lg" data-aos="zoom-in">
+      <img src="images/mentor.png" alt="Manasa Avatar" class="w-32 h-32 rounded-full border-4 border-red-600 mb-4 shadow-md" />
     </div>
   </section>
 
-  <!-- MENTORSHIP MOMENTS PHOTO ROW (Full Width) -->
-  <section class="w-full py-16 bg-black">
-    <h3 class="text-3xl font-bold text-red-500 mb-6 border-b border-red-700 pb-2 w-fit mx-6 md:mx-12">Mentorship in Action 💬</h3>
-    <div class="overflow-x-auto overflow-y-hidden w-full">
-      <div class="flex gap-6 snap-x snap-mandatory scroll-smooth overflow-x-scroll scrollbar-hide px-0">
-        <div class="flex-shrink-0 snap-start w-[400px] h-[250px] rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-500">
-          <img src="images/m1.jpeg" alt="Moment 1" class="w-full h-full object-cover" />
-        </div>
-        <div class="flex-shrink-0 snap-start w-[400px] h-[250px] rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-500">
-          <img src="images/m2.jpeg" alt="Moment 2" class="w-full h-full object-cover" />
-        </div>
-        <div class="flex-shrink-0 snap-start w-[400px] h-[250px] rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-500">
-          <img src="images/m3.jpeg" alt="Moment 3" class="w-full h-full object-cover" />
-        </div>
-        <div class="flex-shrink-0 snap-start w-[400px] h-[250px] rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-500">
-          <img src="images/m4.jpeg" alt="Moment 4" class="w-full h-full object-cover" />
-        </div>
-      </div>
+  <section class="px-6 md:px-12 py-12 bg-black bg-opacity-80">
+    <div class="max-w-3xl mx-auto text-center text-gray-300 text-lg leading-relaxed">
+      <p data-aos="fade-up">
+        I am deeply grateful to the guiding lights who shaped my path — from professors during my undergraduate and master's studies, to mentors at my workplace and hackathons. Each one, through their patience, insights, and belief in me, has left an indelible mark on my personal and professional growth.
+      </p>
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
-  <section class="px-6 md:px-12 py-12">
-    <h3 class="text-3xl font-bold text-red-500 mb-8 border-b border-red-700 pb-2 w-fit">Echoes from the Journey</h3>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-      <div class="bg-[#1a1a1a] p-4 rounded-lg testimonial-card">
-        <p class="text-sm italic">"She mentored me not with answers, but with the right questions — and that made all the difference."</p>
-        <p class="text-xs text-gray-400 mt-2">— Mentee, Python Bootcamp</p>
-      </div>
-      <div class="bg-[#1a1a1a] p-4 rounded-lg testimonial-card">
-        <p class="text-sm italic">"She listens with intent and leads with purpose. A mentor who makes you feel seen."</p>
-        <p class="text-xs text-gray-400 mt-2">— Junior Developer</p>
-      </div>
-      <div class="bg-[#1a1a1a] p-4 rounded-lg testimonial-card">
-        <p class="text-sm italic">"Her mentorship didn’t just make me better technically — it made me believe in myself."</p>
-        <p class="text-xs text-gray-400 mt-2">— Undergraduate Mentee</p>
+  <!-- MENTOR CARDS -->
+  <section class="px-6 md:px-12 py-12 bg-black bg-opacity-80">
+    <div class="max-w-6xl mx-auto text-center">
+      <h3 class="text-3xl font-bold text-red-500 mb-12 border-b border-red-700 pb-2 w-fit mx-auto">Gratitude to My Mentors</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <div class="glass p-6 rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-[0_0_20px_#e50914]" data-aos="fade-up">
+          <img src="images/ug.png" alt="Undergraduate Professor" class="w-16 h-16 mx-auto mb-4" />
+          <h4 class="text-xl font-semibold text-white mb-2">Undergraduate Professor</h4>
+          <p class="text-gray-300 text-sm">Laid my foundation in core computing, encouraged curiosity, and made algorithms feel alive.</p>
+        </div>
+        <div class="glass p-6 rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-[0_0_20px_#e50914]" data-aos="fade-up" data-aos-delay="100">
+          <img src="images/pg.png" alt="Master's Advisor" class="w-16 h-16 mx-auto mb-4" />
+          <h4 class="text-xl font-semibold text-white mb-2">Master's Advisor</h4>
+          <p class="text-gray-300 text-sm">Guided my research journey, helped me see value in questioning conventions and validating ideas.</p>
+        </div>
+        <div class="glass p-6 rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-[0_0_20px_#e50914]" data-aos="fade-up" data-aos-delay="200">
+          <img src="images/workplace.png" alt="Workplace Mentor" class="w-16 h-16 mx-auto mb-4" />
+          <h4 class="text-xl font-semibold text-white mb-2">Workplace Mentor</h4>
+          <p class="text-gray-300 text-sm">Taught me real-world pragmatism — to architect, optimize, and never stop refining.</p>
+        </div>
+        <div class="glass p-6 rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-[0_0_20px_#e50914]" data-aos="fade-up" data-aos-delay="300">
+          <img src="images/hackthon.png" alt="Hackathon Partner" class="w-16 h-16 mx-auto mb-4" />
+          <h4 class="text-xl font-semibold text-white mb-2">Hackathon Partner</h4>
+          <p class="text-gray-300 text-sm">Brainstormed with brilliance and executed under pressure — redefining limits together.</p>
+        </div>
+        <div class="glass p-6 rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-[0_0_20px_#e50914]" data-aos="fade-up" data-aos-delay="400">
+          <img src="images/peer.png" alt="Peer Mentor" class="w-16 h-16 mx-auto mb-4" />
+          <h4 class="text-xl font-semibold text-white mb-2">Peer Mentor</h4>
+          <p class="text-gray-300 text-sm">Cheered from the sidelines and critiqued like a coach — growth was never lonely.</p>
+        </div>
+        <div class="glass p-6 rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-[0_0_20px_#e50914]" data-aos="fade-up" data-aos-delay="500">
+          <img src="images/school.png" alt="C Programming Teacher" class="w-16 h-16 mx-auto mb-4" />
+          <h4 class="text-xl font-semibold text-white mb-2">School C Programming Teacher</h4>
+          <p class="text-gray-300 text-sm">Introduced me to logic, loops, and joy of solving puzzles in C — a lifelong spark.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="text-center px-6 md:px-12 py-16 bg-[#121212]">
-    <h3 class="text-3xl font-bold text-white mb-4">Want to Collaborate or Connect?</h3>
-    <p class="text-gray-400 mb-6">Let’s build, guide, and grow together — across boundaries and titles.</p>
-    <a href="mailto:manasakaranam6199@gmail.com" class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded transition">Reach Out</a>
+  <section class="text-center px-6 md:px-12 py-20 bg-gradient-to-br from-red-900 via-black to-black">
+    <h3 class="text-3xl font-bold text-white mb-4">Let’s Connect as Mentors or Mentees</h3>
+    <p class="text-gray-300 mb-6">I believe mentorship is a lifelong cycle. If you'd like to collaborate, guide, or learn together — I’m all ears.</p>
+    <a href="mailto:manasakaranam6199@gmail.com" class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded transition">Start a Conversation</a>
   </section>
 
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init({ duration: 800, once: true });</script>
   <script>
-    AOS.init({ duration: 800, once: true });
+    tsParticles.load("tsparticles", {
+      background: { color: { value: "#000000" } },
+      fpsLimit: 60,
+      interactivity: {
+        events: { onHover: { enable: true, mode: "repulse" }, resize: true },
+        modes: { repulse: { distance: 100, duration: 0.4 } }
+      },
+      particles: {
+        color: { value: "#ff0000" },
+        links: { color: "#ff0000", distance: 150, enable: true, opacity: 0.4, width: 1 },
+        collisions: { enable: true },
+        move: { direction: "none", enable: true, outModes: { default: "bounce" }, speed: 1 },
+        number: { density: { enable: true, area: 800 }, value: 80 },
+        opacity: { value: 0.5 },
+        shape: { type: "circle" },
+        size: { value: { min: 1, max: 5 } }
+      },
+      detectRetina: true
+    });
   </script>
-
 </body>
 </html>

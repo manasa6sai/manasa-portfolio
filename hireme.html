@@ -5,29 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hire Me | Manasa Sai Karanam</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
   <style>
+    #vanta-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+    }
     .glow-box:hover {
       box-shadow: 0 0 15px #e50914, 0 0 25px #e50914;
       transform: scale(1.03);
     }
-
     .hire-card {
-    background-color: #1a1a1a;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 0 0 transparent;
-  }
-  .hire-card:hover {
-    box-shadow: 0 0 15px #e50914, 0 0 30px #e50914;
-    transform: scale(1.03);
-  }
+      background-color: #1a1a1a;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 0 0 transparent;
+    }
+    .hire-card:hover {
+      box-shadow: 0 0 15px #e50914, 0 0 30px #e50914;
+      transform: scale(1.03);
+    }
   </style>
 </head>
 <body class="bg-black text-white font-sans">
+  <div id="vanta-bg"></div>
 
   <!-- NAVBAR -->
   <nav class="w-full flex items-center justify-between px-8 py-4 z-20 bg-black bg-opacity-70">
     <div class="flex items-center gap-8">
-        <a href="whos-watching.html" class="text-2xl font-bold text-red-600 hover:text-white transition">MANASA</a>
+      <a href="whos-watching.html" class="text-2xl font-bold text-red-600 hover:text-white transition">MANASA</a>
       <ul class="flex gap-6 text-sm text-gray-300">
         <li><a href="recruiter.html" class="hover:text-white transition">Home</a></li>
         <li><a href="professional.html" class="hover:text-white transition">Professional</a></li>
@@ -42,8 +52,8 @@
     </ul>
   </nav>
 
-<!-- HERO SECTION -->
-<section class="h-[70vh] flex flex-col items-center justify-center text-center px-6 bg-cover bg-center" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://thumbs.dreamstime.com/b/graduate-holding-hire-me-sign-high-quality-photo-332031776.jpg');">
+  <!-- HERO SECTION -->
+  <section class="h-[70vh] flex flex-col items-center justify-center text-center px-6 bg-cover bg-center" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://thumbs.dreamstime.com/b/graduate-holding-hire-me-sign-high-quality-photo-332031776.jpg');">
     <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-3">Let's Build Something Powerful</h2>
     <p class="text-lg text-gray-300 mb-6">I engineer backends that scale, APIs that deliver, and systems that perform.</p>
     <div class="flex gap-4">
@@ -51,42 +61,33 @@
       <a href="#contact" class="bg-gray-700 text-white px-6 py-2 rounded hover:bg-gray-600 transition">Contact Me</a>
     </div>
   </section>
-  
-  
 
   <!-- VALUE SECTION -->
-<!-- VALUE SECTION -->
-<section class="px-6 md:px-12 py-16">
+  <section class="px-6 md:px-12 py-16">
     <h3 class="text-3xl font-bold text-red-500 mb-6 border-b border-red-700 pb-2 w-fit">Why Hire Me?</h3>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-  
       <div class="rounded-lg p-5 hire-card flex flex-col items-center text-center">
         <img src="https://c8.alamy.com/comp/2CBWDT1/isometric-vector-of-a-female-programmer-software-engineer-coding-on-desktop-2CBWDT1.jpg" alt="Code Icon" class="w-full h-36 object-cover rounded-md mb-4"/>
         <h4 class="text-xl font-semibold text-white mb-2">Production-Ready Code</h4>
         <p class="text-sm text-gray-300">From RESTful APIs to microservices, I build efficient, scalable systems.</p>
       </div>
-  
       <div class="rounded-lg p-5 hire-card flex flex-col items-center text-center">
         <img src="https://dw2q8mfb3dci9.cloudfront.net/pub/media/magefan_blog/how-to-become-cloud-computing-expert.jpg" alt="Cloud Icon" class="w-full h-36 object-cover rounded-md mb-4"/>
         <h4 class="text-xl font-semibold text-white mb-2">Cloud Native</h4>
         <p class="text-sm text-gray-300">Experience deploying on AWS using Docker, Kubernetes, CI/CD pipelines.</p>
       </div>
-  
       <div class="rounded-lg p-5 hire-card flex flex-col items-center text-center">
         <img src="https://www.jitterbit.com/wp-content/uploads/AI-Integration-Technology-Podcast-Featured-Image.jpg" alt="AI Icon" class="w-full h-36 object-cover rounded-md mb-4"/>
         <h4 class="text-xl font-semibold text-white mb-2">AI-Ready</h4>
         <p class="text-sm text-gray-300">Integrated AI/ML APIs (Cohere, OpenAI) into real-time platforms.</p>
       </div>
-  
       <div class="rounded-lg p-5 hire-card flex flex-col items-center text-center">
         <img src="https://media.licdn.com/dms/image/v2/D5612AQHCaHeugw8CBA/article-cover_image-shrink_720_1280/B56ZT3NRqEHQAI-/0/1739314240962?e=2147483647&v=beta&t=SH_hjO5qfGrZAtIFHNr2KvToHIxwHOP5kFg9TECxY84" alt="Award Icon" class="w-full h-36 object-cover rounded-md mb-4"/>
         <h4 class="text-xl font-semibold text-white mb-2">Proven Track Record</h4>
         <p class="text-sm text-gray-300">Hackathon wins, research publications, and live production systems.</p>
       </div>
-  
     </div>
   </section>
-  
 
   <!-- ROLE MATCH SECTION -->
   <section class="px-6 md:px-12 py-12">
@@ -102,8 +103,7 @@
   </section>
 
   <!-- CONTACT FORM -->
-<!-- CONTACT FORM -->
-<section id="contact" class="px-6 md:px-12 py-12">
+  <section id="contact" class="px-6 md:px-12 py-12">
     <h3 class="text-3xl font-bold text-red-500 mb-6 border-b border-red-700 pb-2 w-fit">Let's Connect</h3>
     <form action="https://formspree.io/f/xjkyejaw" method="POST" class="max-w-2xl mx-auto space-y-4">
       <input type="text" name="name" placeholder="Your Name" class="w-full px-4 py-2 bg-gray-800 text-white rounded" required />
@@ -112,7 +112,24 @@
       <button type="submit" class="bg-red-600 px-6 py-2 text-white rounded hover:bg-red-700">Send Message</button>
     </form>
   </section>
-  
 
+  <!-- VANTA NET INIT -->
+  <script>
+    VANTA.NET({
+      el: "#vanta-bg",
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.00,
+      scaleMobile: 1.00,
+      color: 0xff0000,
+      backgroundColor: 0x000000,
+      points: 12.00,
+      maxDistance: 25.00,
+      spacing: 18.00
+    });
+  </script>
 </body>
 </html>
