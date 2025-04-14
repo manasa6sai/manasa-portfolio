@@ -41,23 +41,24 @@
 
 <body class="bg-black text-white font-sans">
 
-  <!-- NAVBAR -->
-  <nav class="w-full flex items-center justify-between px-8 py-4 z-20 bg-black bg-opacity-70">
-    <div class="flex items-center gap-8">
-      <a href="whos-watching.html" class="text-2xl font-bold text-red-600 hover:text-white transition">MANASA</a>
-      <ul class="flex gap-6 text-sm text-gray-300">
-        <li><a href="peer.html" class="hover:text-white transition">Home</a></li>
-        <li><a href="professional.html" class="hover:text-white transition">Professional</a></li>
-        <li><a href="skills.html" class="hover:text-white transition">Skills</a></li>
-        <li><a href="projects.html" class="hover:text-white transition">Projects</a></li>
-        <li><a href="hireme.html" class="hover:text-white transition">Hire Me</a></li>
-      </ul>
-    </div>
+<!-- NAVIGATION BAR -->
+<nav class="w-full flex items-center justify-between px-8 py-4 z-20 bg-black bg-opacity-70">
+  <div class="flex items-center gap-8">
+    <a href="whos-watching.html" class="text-2xl font-bold text-red-600 hover:text-white transition">MANASA</a>
     <ul class="flex gap-6 text-sm text-gray-300">
-      <li><a href="https://github.com/manasa6sai" target="_blank" class="hover:text-white transition">GitHub</a></li>
-      <li><a href="https://linkedin.com/in/manasa-sai-karanam" target="_blank" class="hover:text-white transition">LinkedIn</a></li>
+      <li><a id="home-link" class="hover:text-white transition">Home</a></li>
+      <li><a href="professional.html" class="hover:text-white transition">Professional</a></li>
+      <li><a href="skills.html" class="hover:text-white transition">Skills</a></li>
+      <li><a href="projects.html" class="hover:text-white transition">Projects</a></li>
+      <li><a href="hireme.html" class="hover:text-white transition">Hire Me</a></li>
     </ul>
-  </nav>
+  </div>
+  <ul class="flex gap-6 text-sm text-gray-300">
+    <li><a href="https://github.com/manasa6sai" target="_blank" class="hover:text-white transition">GitHub</a></li>
+    <li><a href="https://linkedin.com/in/manasa-sai-karanam" target="_blank" class="hover:text-white transition">LinkedIn</a></li>
+  </ul>
+</nav>
+
 
   <!-- HERO -->
   <section class="h-[70vh] flex items-center justify-center flex-col text-center px-6 bg-[url('https://images.unsplash.com/photo-1503264116251-35a269479413?fit=crop&w=1950&q=80')] bg-cover bg-center">
@@ -223,6 +224,13 @@
       }, 500);
     }, 3000);
   </script>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const persona = sessionStorage.getItem('persona') || 'peer';
+    const homeLink = document.getElementById('home-link');
+    homeLink.setAttribute('href', `${persona}.html`);
+  });
+</script>
 
 </body>
 </html>

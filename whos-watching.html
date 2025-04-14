@@ -15,24 +15,21 @@
   <div class="flex gap-10 flex-wrap justify-center">
 
     <!-- Recruiter -->
-    <a href="recruiter.html" class="flex flex-col items-center group cursor-pointer">
-        <div class="w-28 h-28 rounded-md bg-gradient-to-b from-blue-400 to-blue-500 flex items-center justify-center relative">
-          <div class="absolute">
-            <!-- Eyes -->
-            <div class="flex justify-between w-10 mx-auto mt-4">
-              <div class="w-2 h-2 bg-white rounded-full"></div>
-              <div class="w-2 h-2 bg-white rounded-full"></div>
-            </div>
-            <!-- Smile -->
-            <div class="w-10 h-4 border-b-2 border-white rounded-b-full mt-6 mx-auto"></div>
+    <div onclick="enterAs('recruiter')" class="flex flex-col items-center group cursor-pointer">
+      <div class="w-28 h-28 rounded-md bg-gradient-to-b from-blue-400 to-blue-500 flex items-center justify-center relative">
+        <div class="absolute">
+          <div class="flex justify-between w-10 mx-auto mt-4">
+            <div class="w-2 h-2 bg-white rounded-full"></div>
+            <div class="w-2 h-2 bg-white rounded-full"></div>
           </div>
+          <div class="w-10 h-4 border-b-2 border-white rounded-b-full mt-6 mx-auto"></div>
         </div>
-        <p class="text-sm mt-3 group-hover:text-gray-300">Recruiter</p>
-      </a>
-      
-    <!-- Peer -->
+      </div>
+      <p class="text-sm mt-3 group-hover:text-gray-300">Recruiter</p>
+    </div>
 
-    <a href="peer.html" class="flex flex-col items-center group cursor-pointer">
+    <!-- Peer -->
+    <div onclick="enterAs('peer')" class="flex flex-col items-center group cursor-pointer">
       <div class="w-28 h-28 rounded-md bg-gradient-to-b from-yellow-300 to-yellow-400 flex items-center justify-center relative">
         <div class="absolute">
           <div class="flex justify-between w-10 mx-auto mt-4">
@@ -43,10 +40,10 @@
         </div>
       </div>
       <p class="text-sm mt-3 group-hover:text-gray-300">Peer</p>
-    </a>
+    </div>
 
     <!-- Mentor -->
-    <a href="mentor.html" class="flex flex-col items-center group cursor-pointer">
+    <div onclick="enterAs('mentor')" class="flex flex-col items-center group cursor-pointer">
       <div class="w-28 h-28 rounded-md bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 flex items-center justify-center relative">
         <div class="absolute">
           <div class="flex justify-between w-10 mx-auto mt-4">
@@ -57,7 +54,7 @@
         </div>
       </div>
       <p class="text-sm mt-3 group-hover:text-gray-300">Mentor</p>
-    </a>
+    </div>
 
     <!-- Inquisitor -->
     <div class="flex flex-col items-center group cursor-pointer">
@@ -86,6 +83,20 @@
   <button class="mt-12 px-6 py-2 border border-gray-500 text-sm text-gray-300 hover:text-white hover:border-white transition">
     Manage Profiles
   </button>
+
+  <!-- Session Logic -->
+  <script>
+    function enterAs(role) {
+      sessionStorage.setItem("persona", role);
+      if (role === "recruiter") {
+        window.location.href = "recruiter.html";
+      } else if (role === "peer") {
+        window.location.href = "peer.html";
+      } else if (role === "mentor") {
+        window.location.href = "mentor.html";
+      }
+    }
+  </script>
 
 </body>
 </html>

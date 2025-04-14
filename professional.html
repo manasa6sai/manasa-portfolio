@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Professional Journey | Manasa Sai Karanam</title>
   <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
+    /* 🎯 Timeline & Layout Styles */
     .timeline-entry {
       display: flex;
       justify-content: flex-start;
@@ -59,36 +61,79 @@
         max-width: 100%;
       }
     }
+
+    /* 🌟 Netflix-Inspired Background */
+    body {
+      background: radial-gradient(circle at center, rgba(20, 20, 20, 0.8), #000000);
+      position: relative;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      z-index: -1;
+      background: 
+        linear-gradient(to right, rgba(229, 9, 20, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(229, 9, 20, 0.05) 1px, transparent 1px);
+      background-size: 60px 60px; /* Mimics Netflix content tiles */
+      opacity: 0.3;
+      animation: gridSlide 50s linear infinite;
+    }
+    @keyframes gridSlide {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 60px 60px;
+      }
+    }
+
+    /* 🎥 Particle Effect for Cinematic Feel */
+    #particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
   </style>
 </head>
+
 <body class="bg-black text-white font-sans">
-  <header class="bg-black shadow-lg p-4 flex items-center gap-10">
-<!-- NAVIGATION BAR -->
-<nav class="absolute top-0 left-0 w-full flex items-center justify-between px-8 py-4 z-20 bg-black bg-opacity-70">
-  <div class="flex items-center gap-8">
-    <a href="whos-watching.html" class="text-2xl font-bold text-red-600 hover:text-white transition">MANASA</a>
+  <canvas id="particles"></canvas>
+
+  <!-- 🔺 NAVIGATION -->
+  <nav class="absolute top-0 left-0 w-full flex items-center justify-between px-8 py-4 z-20 bg-black bg-opacity-70">
+    <div class="flex items-center gap-8">
+      <a href="whos-watching.html" class="text-2xl font-bold text-red-600 hover:text-white transition">MANASA</a>
+      <ul class="flex gap-6 text-sm text-gray-300">
+        <li><a href="recruiter.html" class="hover:text-white transition">Home</a></li>
+        <li><a href="professional.html" class="hover:text-white transition">Professional</a></li>
+        <li><a href="skills.html" class="hover:text-white transition">Skills</a></li>
+        <li><a href="#projects" class="hover:text-white transition">Projects</a></li>
+        <li><a href="#hireme" class="hover:text-white transition">Hire Me</a></li>
+      </ul>
+    </div>
     <ul class="flex gap-6 text-sm text-gray-300">
-      <li><a href="recruiter.html" class="hover:text-white transition">Home</a></li>
-      <li><a href="professional.html" class="hover:text-white transition">Professional</a></li>
-      <li><a href="skills.html" class="hover:text-white transition">Skills</a></li>
-      <li><a href="#projects" class="hover:text-white transition">Projects</a></li>
-      <li><a href="#hireme" class="hover:text-white transition">Hire Me</a></li>
+      <li><a href="https://github.com/manasa6sai" target="_blank" class="hover:text-white transition">GitHub</a></li>
+      <li><a href="https://linkedin.com/in/manasa-sai-karanam" target="_blank" class="hover:text-white transition">LinkedIn</a></li>
     </ul>
-  </div>
-  <ul class="flex gap-6 text-sm text-gray-300">
-    <li><a href="https://github.com/manasa6sai" target="_blank" class="hover:text-white transition">GitHub</a></li>
-    <li><a href="https://linkedin.com/in/manasa-sai-karanam" target="_blank" class="hover:text-white transition">LinkedIn</a></li>
-  </ul>
-</nav>
+  </nav>
 
-  </header>
-
-  <section class="max-w-6xl mx-auto px-6 py-10 relative">
+  <!-- 🧭 TIMELINE -->
+  <section class="max-w-6xl mx-auto px-6 py-32 relative">
     <h2 class="text-3xl font-bold text-white mb-20"><span class="text-[#e50914]">🗓️</span> Work Experience & Education Timeline</h2>
     <div class="timeline-line"></div>
 
     <div class="space-y-20 relative">
 
+      <!-- Entry 1 -->
       <div class="timeline-entry">
         <div class="timeline-icon" style="top: 1.5rem; left: calc(50% - 20px); background-image: url('https://cdn-icons-png.flaticon.com/512/3022/3022635.png');"></div>
         <div class="timeline-content bg-gradient-to-r from-blue-700 to-indigo-800">
@@ -101,8 +146,9 @@
         </div>
       </div>
 
+      <!-- Entry 2 -->
       <div class="timeline-entry right">
-        <div class="timeline-icon" style="top: 1.5rem; left: calc(50% - 20px); background-image: url('https://cdn-icons-png.flaticon.com/512/899/899703.png');"></div>
+        <div class="timeline-icon" style="top: 1.5rem; left: calc(50% - 20px); background-image: url('https://st2.depositphotos.com/10376142/50668/v/450/depositphotos_506685818-stock-illustration-glowing-neon-line-e-learning.jpg');"></div>
         <div class="timeline-content bg-gradient-to-r from-pink-600 to-red-500">
           <h3 class="text-xl font-bold">Hackathon – Code to Give</h3>
           <p class="text-gray-200 text-sm mb-1">Morgan Stanley | 2024</p>
@@ -113,6 +159,7 @@
         </div>
       </div>
 
+      <!-- Entry 3 -->
       <div class="timeline-entry">
         <div class="timeline-icon" style="top: 1.5rem; left: calc(50% - 20px); background-image: url('https://cdn-icons-png.flaticon.com/512/1087/1087815.png');"></div>
         <div class="timeline-content bg-gradient-to-r from-green-600 to-emerald-500">
@@ -125,8 +172,9 @@
         </div>
       </div>
 
+      <!-- Entry 4 -->
       <div class="timeline-entry right">
-        <div class="timeline-icon" style="top: 1.5rem; left: calc(50% - 20px); background-image: url('https://cdn-icons-png.flaticon.com/512/3659/3659733.png');"></div>
+        <div class="timeline-icon" style="top: 1.5rem; left: calc(50% - 20px); background-image: url('https://st4.depositphotos.com/21557188/23289/v/450/depositphotos_232895054-stock-illustration-wrench-screwdriver-gear-rainbow-color.jpg');"></div>
         <div class="timeline-content bg-gradient-to-r from-yellow-500 to-orange-500">
           <h3 class="text-xl font-bold">Software Engineer – Data Platforms</h3>
           <p class="text-gray-200 text-sm mb-1">LTI | Jul 2020 – Sep 2021</p>
@@ -137,6 +185,7 @@
         </div>
       </div>
 
+      <!-- Entry 5 -->
       <div class="timeline-entry">
         <div class="timeline-icon" style="top: 1.5rem; left: calc(50% - 20px); background-image: url('https://cdn-icons-png.flaticon.com/512/190/190411.png');"></div>
         <div class="timeline-content bg-gradient-to-r from-purple-700 to-fuchsia-600">
@@ -151,5 +200,64 @@
 
     </div>
   </section>
+
+  <script>
+    const canvas = document.getElementById("particles");
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const particlesArray = [];
+    const numberOfParticles = 50;
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 5 + 2;
+        this.speedX = Math.random() * 0.5 - 0.25;
+        this.speedY = Math.random() * 0.5 - 0.25;
+        this.opacity = Math.random() * 0.5 + 0.3;
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x > canvas.width) this.x = 0;
+        else if (this.x < 0) this.x = canvas.width;
+        if (this.y > canvas.height) this.y = 0;
+        else if (this.y < 0) this.y = canvas.height;
+      }
+      draw() {
+        ctx.fillStyle = `rgba(229, 9, 20, ${this.opacity})`; // Netflix red
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function init() {
+      for (let i = 0; i < numberOfParticles; i++) {
+        particlesArray.push(new Particle());
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < particlesArray.length; i++) {
+        particlesArray[i].update();
+        particlesArray[i].draw();
+      }
+      requestAnimationFrame(animate);
+    }
+
+    init();
+    animate();
+
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
 </body>
 </html>
