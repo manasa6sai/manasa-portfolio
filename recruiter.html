@@ -10,241 +10,329 @@
     body {
       position: relative;
       overflow-x: hidden;
-      background: #0f0f0f;
-    }
-    .project-card img {
-      height: 200px;
-      object-fit: cover;
-    }
-    .typewriter {
-      display: inline-block;
-      overflow: hidden;
-      white-space: nowrap;
-      border-right: 3px solid white;
-      animation: typing 5s steps(60, end), blink .75s step-end infinite;
-      color: white;
-    }
-    .project-card {
-      transition: all 0.3s ease;
-      z-index: 30;
-      position: relative;
-      background-color: #1a1a1a;
-    }
-    .project-card:hover {
-      box-shadow: 0 0 15px #e50914, 0 0 25px #e50914;
-      transform: scale(1.05);
-      z-index: 50;
-    }
-    .skill-box {
-      background-color: #262222;
-      padding: 1.5rem;
-      text-align: center;
-      transition: all 0.3s ease;
-      width: 50%;
-      aspect-ratio: 1 / 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 600;
-      border-radius: 0.25rem;
-    }
-    .skill-box:hover {
-      box-shadow: 0 0 15px #e50914, 0 0 25px #e50914;
-      transform: scale(1.05);
-    }
-    
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
-    }
-    @keyframes blink {
-      from, to { border-color: transparent }
-      50% { border-color: white; }
+      background: #141414;
     }
 
-    /* Restored Hero Background Animation */
-    @keyframes changeImage {
-      0% {
-        background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)),
-          url('https://www.ucf.edu/wp-content/blogs.dir/16/files/2020/03/ucf-zoom-FairwindsAlumni2-1920x1080.jpg');
-      }
-      20% {
-        background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)),
-          url('https://cdn.prod.website-files.com/65a663822fb07002b7a6df0d/669cbc41fd1a2ea899bcefb9_header.webp');
-      }
-      40% {
-        background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)),
-          url('https://cdn.finshots.app/images/2022/05/cov55.png');
-      }
-      60% {
-        background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)),
-          url('https://knnindia.co.in/uploads/newsfiles/IIIT-Sricity-22-7-2022.jpg');
-      }
-      80% {
-        background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)),
-          url('https://media.licdn.com/dms/image/v2/D5612AQHD-9v8FnpTCA/article-cover_image-shrink_720_1280/B56ZT.TABIGUAM-/0/1739433181799?e=2147483647&v=beta&t=V42V3sCMoGSk_s1BGVFbJxBmzsyDJPlU4x9S0ssXoJw');
-      }
-      100% {
-        background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)),
-          url('https://hems-assets.princetonreview.com/images/profilepics/1022881/201.jpg');
-      }
-    }
+    /* Netflix-style image transitions */
     .background-animate {
       animation: changeImage 30s infinite;
       background-size: cover;
       background-position: center;
+      position: relative;
+    }
+    
+    .background-animate::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(20, 20, 20, 0.8) 0%,
+        rgba(20, 20, 20, 0.5) 60%,
+        rgba(20, 20, 20, 0.9) 100%
+      );
+      z-index: 1;
     }
 
-    /* Netflix-Inspired Ripple & Flare Animation */
-    #background-container {
+    @keyframes changeImage {
+      0%, 16% {
+        background-image: url('images/grad.jpg');
+        transform: scale(1.1);
+      }
+      20%, 36% {
+        background-image: url('https://veritasprime.com/wp-content/uploads/2024/03/Women-working-on-laptops-in-a-tech-environment-1024x512.jpg');
+        transform: scale(1);
+      }
+      40%, 56% {
+        background-image: url('https://e1.pxfuel.com/desktop-wallpaper/296/471/desktop-wallpaper-computer-network-computer-vision.jpg');
+        transform: scale(1.1);
+      }
+      60%, 76% {
+        background-image: url('https://images.unsplash.com/photo-1550439062-609e1531270e?auto=format&fit=crop&w=1950&q=80');
+        transform: scale(1);
+      }
+      80%, 96% {
+        background-image: url('https://images.pexels.com/photos/610293/pexels-photo-610293.jpeg?cs=srgb&dl=pexels-david-bartus-43782-610293.jpg&fm=jpg');
+        transform: scale(1.1);
+      }
+      100% {
+        background-image: url('https://images.pexels.com/photos/610293/pexels-photo-610293.jpeg?cs=srgb&dl=pexels-david-bartus-43782-610293.jpg&fm=jpg');
+        transform: scale(1);
+      }
+    }
+
+    /* Netflix-style text reveal */
+    .netflix-reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: netflixReveal 0.8s ease forwards;
+    }
+
+    @keyframes netflixReveal {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Netflix-style typewriter with smooth reveal */
+    .typewriter {
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 3px solid #E50914;
+      animation: typing 5s steps(60, end), 
+                blink 0.75s step-end infinite,
+                fadeIn 1s ease-out;
+      color: white;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      from, to { border-color: transparent }
+      50% { border-color: #E50914 }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0 }
+      to { opacity: 1 }
+    }
+
+    /* Enhanced Project Cards with Netflix-style hover */
+    .project-card {
+      transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+      transform-origin: center bottom;
+      opacity: 0;
+      animation: cardReveal 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    }
+
+    .project-card:hover {
+      transform: scale(1.05) translateY(-10px);
+      box-shadow: 0 30px 60px rgba(229, 9, 20, 0.3);
+      z-index: 2;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(20, 20, 20, 0) 0%,
+        rgba(20, 20, 20, 0.8) 100%
+      );
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .project-card:hover::before {
+      opacity: 1;
+    }
+
+    @keyframes cardReveal {
+      0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .project-card:nth-child(1) { animation-delay: 0.2s; }
+    .project-card:nth-child(2) { animation-delay: 0.4s; }
+    .project-card:nth-child(3) { animation-delay: 0.6s; }
+
+    /* Netflix-style button animations */
+    .netflix-btn {
+      background: #E50914;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .netflix-btn:hover {
+      transform: scale(1.05);
+      background: #F40612;
+      box-shadow: 0 5px 15px rgba(229, 9, 20, 0.4);
+    }
+
+    .netflix-btn::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+      );
+      transform: translateX(-100%);
+      transition: 0.6s;
+    }
+
+    .netflix-btn:hover::after {
+      transform: translateX(100%);
+    }
+
+    /* Navigation hover effects */
+    .nav-link {
+      position: relative;
+      color: #808080;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #E50914;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: white;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Project button container */
+    .project-btn-container {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+    }
+
+    .project-card:hover .project-btn-container {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-btn {
+      background: rgba(229, 9, 20, 0.9);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .project-btn:hover {
+      background: #E50914;
+      transform: scale(1.05);
+    }
+
+    /* Background vignette effect */
+    .vignette {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: -1;
-      overflow: hidden;
-      background: radial-gradient(circle at center, rgba(20, 20, 20, 0.8), #000000);
-    }
-    .ripple-tile {
-      position: absolute;
-      width: 200px;
-      height: 120px;
-      background: linear-gradient(135deg, rgba(229, 9, 20, 0.4), rgba(0, 0, 0, 0.6));
-      border-radius: 8px;
-      animation: ripple 12s ease-in-out infinite;
-      transform-origin: center;
-      opacity: 0;
-    }
-    .ripple-tile:nth-child(1) { top: 20%; left: 30%; animation-delay: 0s; }
-    .ripple-tile:nth-child(2) { top: 50%; left: 60%; animation-delay: 3s; }
-    .ripple-tile:nth-child(3) { top: 70%; left: 20%; animation-delay: 6s; }
-    .ripple-tile:nth-child(4) { top: 30%; left: 80%; animation-delay: 9s; }
-    @keyframes ripple {
-      0% { transform: scale(0); opacity: 0.5; }
-      50% { transform: scale(1.5); opacity: 0.2; }
-      100% { transform: scale(0); opacity: 0; }
-    }
-    .flare {
-      position: absolute;
-      width: 400px;
-      height: 2px;
-      background: linear-gradient(to right, rgba(229, 9, 20, 0), rgba(229, 9, 20, 0.8), rgba(229, 9, 20, 0));
-      animation: flareSweep 10s ease-in-out infinite;
-      opacity: 0.6;
-    }
-    .flare:nth-child(5) { top: 25%; animation-delay: 2s; }
-    .flare:nth-child(6) { top: 75%; animation-delay: 5s; }
-    @keyframes flareSweep {
-      0% { transform: translateX(-100%); opacity: 0; }
-      50% { transform: translateX(50vw); opacity: 0.6; }
-      100% { transform: translateX(100%); opacity: 0; }
-    }
-    .particle {
-      position: absolute;
-      width: 6px;
-      height: 6px;
-      background: rgba(229, 9, 20, 0.7);
-      border-radius: 50%;
-      animation: drift 15s linear infinite;
-      opacity: 0.5;
-    }
-    .particle:nth-child(7) { top: 10%; left: 5%; animation-delay: 0s; }
-    .particle:nth-child(8) { top: 80%; left: 90%; animation-delay: 4s; }
-    .particle:nth-child(9) { top: 40%; left: 10%; animation-delay: 8s; }
-    .particle:nth-child(10) { top: 60%; left: 85%; animation-delay: 12s; }
-    @keyframes drift {
-      0% { transform: translate(0, 0); opacity: 0.5; }
-      50% { transform: translate(30px, -30px); opacity: 0.8; }
-      100% { transform: translate(0, 0); opacity: 0.5; }
-    }
-
-    /* Project Card Button Styles */
-    .project-btn {
-      background: #e50914;
-      color: white;
-      padding: 6px 10px;
-      border-radius: 4px;
-      font-size: 12px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-      text-align: center;
-    }
-    .project-btn:hover {
-      background: #ff4d4d;
-    }
-    .project-btn-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 10px;
+      background: radial-gradient(
+        circle at center,
+        transparent 0%,
+        rgba(20, 20, 20, 0.8) 100%
+      );
+      pointer-events: none;
+      z-index: 1;
     }
   </style>
 </head>
 <body class="text-white font-sans">
-  <!-- Background Elements -->
-  <div id="background-container">
-    <div class="ripple-tile"></div>
-    <div class="ripple-tile"></div>
-    <div class="ripple-tile"></div>
-    <div class="ripple-tile"></div>
-    <div class="flare"></div>
-    <div class="flare"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-  </div>
+  <div class="vignette"></div>
 
-  <!-- NAVIGATION BAR -->
-  <nav class="absolute top-0 left-0 w-full flex items-center justify-between px-8 py-4 z-20 bg-black bg-opacity-70">
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 w-full flex items-center justify-between px-8 py-4 z-20 bg-gradient-to-b from-black to-transparent">
     <div class="flex items-center gap-8">
-      <a href="whos-watching.html" class="text-2xl font-bold text-red-600 hover:text-white transition">MANASA</a>
-      <ul class="flex gap-6 text-sm text-gray-300">
-        <li><a id="home-link" class="hover:text-white transition">Home</a></li>
-        <li><a href="professional.html" class="hover:text-white transition">Professional</a></li>
-        <li><a href="skills.html" class="hover:text-white transition">Skills</a></li>
-        <li><a href="projects.html" class="hover:text-white transition">Projects</a></li>
-        <li><a href="hireme.html" class="hover:text-white transition">Hire Me</a></li>
+      <a href="whos-watching.html" class="text-2xl font-bold text-[#E50914] hover:text-white transition-colors duration-300">MANASA</a>
+      <ul class="flex gap-6 text-sm">
+        <li><a id="home-link" class="nav-link">Home</a></li>
+        <li><a href="professional.html" class="nav-link">Professional</a></li>
+        <li><a href="skills.html" class="nav-link">Skills</a></li>
+        <li><a href="projects.html" class="nav-link">Projects</a></li>
+        <li><a href="hireme.html" class="nav-link">Hire Me</a></li>
       </ul>
     </div>
-    <ul class="flex gap-6 text-sm text-gray-300">
-      <li><a href="https://github.com/manasa6sai" target="_blank" class="hover:text-white transition">GitHub</a></li>
-      <li><a href="https://linkedin.com/in/manasa-sai-karanam" target="_blank" class="hover:text-white transition">LinkedIn</a></li>
+    <ul class="flex gap-6 text-sm">
+      <li><a href="https://github.com/manasa6sai" target="_blank" class="nav-link">GitHub</a></li>
+      <li><a href="https://linkedin.com/in/manasa-sai-karanam" target="_blank" class="nav-link">LinkedIn</a></li>
     </ul>
   </nav>
 
-  <!-- HERO + ABOUT SECTION COMBINED -->
-  <section class="relative w-full h-[85vh] background-animate flex items-center">
-    <div class="relative z-10 max-w-4xl ml-10 px-8 py-12 bg-transparent">
-      <h2 class="text-5xl font-extrabold text-white mb-4">Manasa Sai Karanam</h2>
-      <p class="text-white text-lg mb-2 typewriter">
-        Software Development Engineer · API Developer · AI Enthusiast · Smart Contract & Blockchain · Big Data · Cloud · Golang
+  <!-- Hero Section -->
+  <section class="relative w-full h-screen background-animate flex items-center">
+    <div class="relative z-10 max-w-4xl ml-10 px-8 py-12">
+      <h2 class="text-6xl font-extrabold mb-4 netflix-reveal" style="animation-delay: 0.2s">
+        Manasa Sai Karanam
+      </h2>
+      <p class="text-xl mb-6 typewriter" style="animation-delay: 0.8s">
+        Software Development Engineer · API Developer · AI Enthusiast · Masters in Computer Science
       </p>
-      <div class="flex gap-4">
-        <button onclick="document.getElementById('about-me').style.display='block'" class="bg-white text-black font-semibold px-5 py-2 rounded hover:bg-gray-200 transition flex items-center gap-2">
-          <svg xmlns='http://www.w3.org/2000/svg' class='h-5 w-5' fill='currentColor' viewBox='0 0 24 24'><path d='M3 22v-20l18 10-18 10z'/></svg>Play Intro
+      <div class="flex gap-4 netflix-reveal" style="animation-delay: 1.2s">
+        <button onclick="document.getElementById('about-me').style.display='block'" class="netflix-btn flex items-center gap-2">
+          <svg xmlns='http://www.w3.org/2000/svg' class='h-5 w-5' fill='currentColor' viewBox='0 0 24 24'>
+            <path d='M3 22v-20l18 10-18 10z'/>
+          </svg>
+          Play Intro
         </button>
-        <a href="ManasaSaiResume.pdf" download class="bg-gray-700 px-5 py-2 rounded hover:bg-gray-600 transition flex items-center gap-2">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12H9m12 0A9 9 0 1 1 3 12a9 9 0 0 1 18 0Z" /></svg>
+        <a href="ManasaSaiResume.pdf" download class="netflix-btn bg-opacity-50 hover:bg-opacity-70 flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12H9m12 0A9 9 0 1 1 3 12a9 9 0 0 1 18 0Z" />
+          </svg>
           Download Resume
         </a>
       </div>
-      <div id="about-me" style="display:none" class="mt-6">
-        <p class="text-gray-200 text-sm mb-4">Delivering production-grade APIs using Go · Docker · AWS · SQL · FastAPI</p>
-        <p class="text-gray-400 text-sm mb-6 leading-relaxed">
-          From launching scalable systems at Tanla to pioneering an AI-based job matcher for Latino professionals at Morgan Stanley’s hackathon, I blend backend engineering with innovation. With 4+ years of experience, I bring stories to life using Golang, cloud-native tools, and a hacker's curiosity.
+      <div id="about-me" style="display:none" class="mt-8 netflix-reveal">
+        <p class="text-lg text-gray-300 mb-4">
+          Delivering production-grade APIs using Go · Docker · AWS · SQL · FastAPI
+        </p>
+        <p class="text-gray-400 leading-relaxed">
+          From launching scalable systems at Tanla to pioneering an AI-based job matcher for Latino professionals at Morgan Stanley's hackathon, I blend backend engineering with innovation. With 4+ years of experience, I bring stories to life using Golang, cloud-native tools, and a hacker's curiosity.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- PROJECTS SECTION -->
-  <section id="projects" class="mt-20 px-6 md:px-12">
-    <h3 class="text-3xl font-extrabold mb-6 text-red-500 tracking-wide border-b border-red-700 pb-2 w-fit">Top Projects</h3>
+  <!-- Projects Section -->
+  <section id="projects" class="relative z-10 mt-20 px-8 pb-20">
+    <h3 class="text-3xl font-extrabold mb-12 text-[#E50914] netflix-reveal">
+      Featured Projects
+    </h3>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Project Cards (preserved from original) -->
       <div class="project-card bg-gradient-to-b from-[#1e3c72] to-[#2a5298] rounded-lg p-4 shadow-lg">
         <a href="https://github.com/manasa6sai/Job-Recommendation-Engine" target="_blank">
           <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?fit=crop&w=600&q=80" alt="Job Matching AI" class="rounded-md mb-3 w-full" />
@@ -259,7 +347,7 @@
         </div>
       </div>
       <div class="project-card bg-gradient-to-b from-[#42275a] to-[#734b6d] rounded-lg p-4 shadow-lg">
-        <a href="https://github.com/your-repo-link2" target="_blank">
+        <a href="https://github.com/manasa6sai/Quality-Restoration-Of-Videos" target="_blank">
           <img src="https://www.dropicts.com/wp-content/uploads/From-Black-White-to-Color-Exploring-Fascinating-Benefits-of-Photo-Colorizing.jpg" alt="Video Restoration" class="rounded-md mb-3 w-full" />
           <h4 class="text-lg font-semibold text-white">AI-Powered Historical Video Restoration</h4>
           <p class="text-sm text-gray-300">Computer Vision • Deep Learning</p>
@@ -272,28 +360,40 @@
         </div>
       </div>
       <div class="project-card bg-gradient-to-b from-[#2c3e50] to-[#4ca1af] rounded-lg p-4 shadow-lg">
-        <a href="https://github.com/your-repo-link3" target="_blank">
+        <a href="https://ieeexplore.ieee.org/document/9208805" target="_blank">
           <img src="https://www.endress.com/__image/a/9341618/k/4450d62f2c50d24f37ab09c357366a6bf05419f9/ar/16-9/w/771/t/jpg/b/ffffff/n/true/fn/smart%20water%20network%20management.jpg" alt="ZJS Project" class="rounded-md mb-3 w-full" />
           <h4 class="text-lg font-semibold text-white">ZJS: Smart Water Interconnection Framework</h4>
           <p class="text-sm text-gray-300">IEEE ACIT 2020 – Research</p>
           <p class="text-xs text-gray-200 mt-1">Proposed a satellite-aided smart water routing system to interconnect ponds and lakes efficiently using AI-based optimization and real deployment in Sri City.</p>
         </a>
         <div class="project-btn-container">
-          <a href="https://www.canva.com/design/ZJS_ID/view" target="_blank" class="project-btn">View</a>
-          <a href="https://github.com/your-repo-link3" target="_blank" class="project-btn">GitHub</a>
-          <a href="projects/zjs/docs/slides.pptx" download class="project-btn">Download</a>
+          <a href="https://www.canva.com/design/DAGklK3DlwU/nLpmRhD-PnRnRS2x8-eIzA/view?utm_content=DAGklK3DlwU&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h2c15840f6f" target="_blank" class="project-btn">View</a>
+          <a href="https://ieeexplore.ieee.org/document/9208805" target="_blank" class="project-btn">IEEE Research Paper</a>
+          <a href="projects/zjs/docs/acit_2020_264.pdf" download class="project-btn">Download</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Scripts -->
   <script>
     // Persona Link Script
     window.addEventListener('DOMContentLoaded', () => {
       const persona = sessionStorage.getItem('persona') || 'recruiter';
       const homeLink = document.getElementById('home-link');
       homeLink.setAttribute('href', `${persona}.html`);
+
+      // Add Netflix-style reveal animations
+      const revealElements = document.querySelectorAll('.netflix-reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.1 });
+
+      revealElements.forEach(el => observer.observe(el));
     });
   </script>
 </body>

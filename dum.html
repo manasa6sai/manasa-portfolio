@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Netflix-Style Portfolio App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    ::-webkit-scrollbar { display: none; }
+    body {
+      position: relative;
+      overflow-x: hidden;
+      background: #141414;
+    }
+
+    /* Netflix-style image transitions */
+    .background-animate {
+      animation: changeImage 30s infinite;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    
+    .background-animate::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(20, 20, 20, 0.8) 0%,
+        rgba(20, 20, 20, 0.5) 60%,
+        rgba(20, 20, 20, 0.9) 100%
+      );
+      z-index: 1;
+    }
+
+    @keyframes changeImage {
+      0%, 16% {
+        background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1950&q=80');
+        transform: scale(1.1);
+      }
+      20%, 36% {
+        background-image: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1950&q=80');
+        transform: scale(1);
+      }
+      40%, 56% {
+        background-image: url('https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?auto=format&fit=crop&w=1950&q=80');
+        transform: scale(1.1);
+      }
+      60%, 76% {
+        background-image: url('https://images.unsplash.com/photo-1550439062-609e1531270e?auto=format&fit=crop&w=1950&q=80');
+        transform: scale(1);
+      }
+      80%, 96% {
+        background-image: url('https://images.unsplash.com/photo-1549692520-acc6669e2f0c?auto=format&fit=crop&w=1950&q=80');
+        transform: scale(1.1);
+      }
+      100% {
+        background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1950&q=80');
+        transform: scale(1);
+      }
+    }
+
+    /* Netflix-style text reveal */
+    .netflix-reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: netflixReveal 0.8s ease forwards;
+    }
+
+    @keyframes netflixReveal {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Netflix-style typewriter with smooth reveal */
+    .typewriter {
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 3px solid #E50914;
+      animation: typing 5s steps(60, end), 
+                blink 0.75s step-end infinite,
+                fadeIn 1s ease-out;
+      color: white;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      from, to { border-color: transparent }
+      50% { border-color: #E50914 }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0 }
+      to { opacity: 1 }
+    }
+
+    /* Enhanced Project Cards with Netflix-style hover */
+    .project-card {
+      transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+      transform-origin: center bottom;
+      opacity: 0;
+      animation: cardReveal 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    }
+
+    .project-card:hover {
+      transform: scale(1.05) translateY(-10px);
+      box-shadow: 0 30px 60px rgba(229, 9, 20, 0.3);
+      z-index: 2;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(20, 20, 20, 0) 0%,
+        rgba(20, 20, 20, 0.8) 100%
+      );
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .project-card:hover::before {
+      opacity: 1;
+    }
+
+    @keyframes cardReveal {
+      0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .project-card:nth-child(1) { animation-delay: 0.2s; }
+    .project-card:nth-child(2) { animation-delay: 0.4s; }
+    .project-card:nth-child(3) { animation-delay: 0.6s; }
+
+    /* Netflix-style button animations */
+    .netflix-btn {
+      background: #E50914;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .netflix-btn:hover {
+      transform: scale(1.05);
+      background: #F40612;
+      box-shadow: 0 5px 15px rgba(229, 9, 20, 0.4);
+    }
+
+    .netflix-btn::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+      );
+      transform: translateX(-100%);
+      transition: 0.6s;
+    }
+
+    .netflix-btn:hover::after {
+      transform: translateX(100%);
+    }
+
+    /* Navigation hover effects */
+    .nav-link {
+      position: relative;
+      color: #808080;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #E50914;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: white;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Background vignette effect */
+    .vignette {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(
+        circle at center,
+        transparent 0%,
+        rgba(20, 20, 20, 0.8) 100%
+      );
+      pointer-events: none;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body class="text-white font-sans">
+  <div class="vignette"></div>
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 w-full flex items-center justify-between px-8 py-4 z-20 bg-gradient-to-b from-black to-transparent">
+    <div class="flex items-center gap-8">
+      <a href="#" class="text-2xl font-bold text-[#E50914] hover:text-white transition-colors duration-300">PORTFOLIO</a>
+      <ul class="flex gap-6 text-sm">
+        <li><a href="#" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+    <ul class="flex gap-6 text-sm">
+      <li><a href="https://github.com" target="_blank" class="nav-link">GitHub</a></li>
+      <li><a href="https://linkedin.com" target="_blank" class="nav-link">LinkedIn</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative w-full h-screen background-animate flex items-center">
+    <div class="relative z-10 max-w-4xl ml-10 px-8 py-12">
+      <h2 class="text-6xl font-extrabold mb-4 netflix-reveal" style="animation-delay: 0.2s">
+        Full Stack Developer
+      </h2>
+      <p class="text-xl mb-6 typewriter" style="animation-delay: 0.8s">
+        Building beautiful, responsive, and performant web applications
+      </p>
+      <div class="flex gap-4 netflix-reveal" style="animation-delay: 1.2s">
+        <button onclick="document.getElementById('about-me').style.display='block'" class="netflix-btn flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          Play Intro
+        </button>
+        <a href="#projects" class="netflix-btn bg-opacity-50 hover:bg-opacity-70 flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          More Info
+        </a>
+      </div>
+      <div id="about-me" style="display:none" class="mt-8 netflix-reveal">
+        <p class="text-lg text-gray-300 mb-4">
+          Passionate about creating exceptional web experiences using modern technologies.
+        </p>
+        <p class="text-gray-400 leading-relaxed">
+          With expertise in React, Node.js, and cloud technologies, I build scalable applications
+          that solve real-world problems. Let's create something amazing together.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="relative z-10 mt-20 px-8 pb-20">
+    <h3 class="text-3xl font-extrabold mb-12 text-[#E50914] netflix-reveal">
+      Featured Projects
+    </h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Project Card 1 -->
+      <div class="project-card relative bg-[#1a1a1a] rounded-lg overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" alt="Project 1" class="w-full h-48 object-cover" />
+        <div class="p-4">
+          <h4 class="text-lg font-semibold">E-Commerce Platform</h4>
+          <p class="text-sm text-gray-400">React • Node.js • MongoDB</p>
+        </div>
+      </div>
+
+      <!-- Project Card 2 -->
+      <div class="project-card relative bg-[#1a1a1a] rounded-lg overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" alt="Project 2" class="w-full h-48 object-cover" />
+        <div class="p-4">
+          <h4 class="text-lg font-semibold">Task Management App</h4>
+          <p class="text-sm text-gray-400">Vue.js • Firebase • Tailwind</p>
+        </div>
+      </div>
+
+      <!-- Project Card 3 -->
+      <div class="project-card relative bg-[#1a1a1a] rounded-lg overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?auto=format&fit=crop&w=600&q=80" alt="Project 3" class="w-full h-48 object-cover" />
+        <div class="p-4">
+          <h4 class="text-lg font-semibold">AI Chat Interface</h4>
+          <p class="text-sm text-gray-400">Next.js • OpenAI • WebSocket</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Intersection Observer for reveal animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.netflix-reveal').forEach(el => observer.observe(el));
+
+    // Smooth scroll for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
