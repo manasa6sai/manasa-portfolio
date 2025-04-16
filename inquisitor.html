@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Inquisitor Prime | Manasa Sai Karanam</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto Condensed', sans-serif;
+      background: linear-gradient(180deg, #1A2526 0%, #0F171E 100%);
+      color: #FFFFFF;
+      overflow-x: hidden;
+    }
+    .prime-glow {
+      text-shadow: 0 0 12px rgba(0, 168, 225, 0.6);
+    }
+    .prime-btn {
+      background-color: #00A8E1;
+      color: white;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      border-radius: 4px;
+    }
+    .prime-btn:hover {
+      background-color: #00CFFF;
+      transform: translateY(-2px);
+    }
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #00A8E1;
+      margin-bottom: 1rem;
+    }
+    .card-hover:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(0, 168, 225, 0.3);
+    }
+    .navbar {
+      background: #131921;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 50;
+    }
+    .navbar-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .navbar-logo-text {
+      color: #FFFFFF;
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .navbar-logo-arrow {
+      width: 120px;
+      height: 20px;
+      margin-top: -5px;
+    }
+    .navbar-logo-arrow path {
+      fill: none;
+      stroke: #FF9900;
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .navbar-logo-arrow polygon {
+      fill: #FF9900;
+    }
+    .navbar-search {
+      flex-grow: 1;
+      margin: 0 20px;
+      background: #232F3E;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+    }
+    .navbar-search input {
+      width: 100%;
+      padding: 8px;
+      border: none;
+      outline: none;
+      background: #232F3E;
+      color: #FFFFFF;
+      border-radius: 4px 0 0 4px;
+    }
+    .navbar-search input::placeholder {
+      color: #A9A9A9;
+    }
+    .navbar-search button {
+      background: #F3A847;
+      padding: 8px;
+      border: none;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+    }
+    .navbar-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .navbar-links a {
+      color: #FFFFFF;
+      font-size: 14px;
+      text-decoration: none;
+    }
+    .navbar-links a:hover {
+      color: #FF9900;
+    }
+    .user-profile {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .user-profile svg {
+      width: 18px;
+      height: 18px;
+      fill: #FFFFFF;
+    }
+    .user-profile:hover svg {
+      fill: #FF9900;
+    }
+    .hero {
+      position: relative;
+      background: linear-gradient(180deg, #1A2526 0%, #0F171E 100%);
+      overflow: hidden;
+    }
+    .hero-content {
+      animation: fadeIn 2s ease-in-out;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-title {
+      display: inline-block;
+      position: relative;
+      animation: zoomIn 1s ease-out;
+    }
+    @keyframes zoomIn {
+      0% { transform: scale(0.6); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .quirky-quote {
+      position: absolute;
+      top: 20%;
+      left: -100%;
+      font-size: 1.5rem;
+      color: #FF9900;
+      font-style: italic;
+      animation: slideIn 4s ease-out forwards;
+      z-index: 2;
+    }
+    @keyframes slideIn {
+      0% { left: -100%; }
+      100% { left: 10%; }
+    }
+    .particles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .particle {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: rgba(0, 168, 225, 0.5);
+      border-radius: 50%;
+      animation: float 6s infinite ease-in-out;
+    }
+    .particle:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+    .particle:nth-child(2) { top: 40%; left: 80%; animation-delay: 1s; }
+    .particle:nth-child(3) { top: 60%; left: 30%; animation-delay: 2s; }
+    .particle:nth-child(4) { top: 80%; left: 60%; animation-delay: 3s; }
+    .particle:nth-child(5) { top: 30%; left: 50%; animation-delay: 4s; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) scale(1); opacity: 0.5; }
+      50% { transform: translateY(-30px) scale(1.2); opacity: 1; }
+    }
+    .prime-btn {
+      background-color: #00A8E1;
+      color: white;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      border-radius: 4px;
+    }
+    .prime-btn:hover {
+      background-color: #00CFFF;
+      transform: translateY(-2px);
+    }
+    /* Glitchy Caption Animation */
+    .glitch-text {
+      position: relative;
+      display: inline-block;
+      font-size: 3rem;
+      font-weight: bold;
+      color: #FFF;
+      animation: glitch 1s infinite alternate;
+    }
+    @keyframes glitch {
+      0% {
+        transform: translate(2px, 0) skew(-5deg);
+        opacity: 0.8;
+      }
+      50% {
+        transform: translate(-2px, 0) skew(5deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(2px, 0) skew(-5deg);
+        opacity: 0.8;
+      }
+    }
+  </style>
+
+<style>
+    @keyframes changeImage {
+      0%, 16% {
+        background-image: url('images/grad.jpg');
+        transform: scale(1.1);
+      }
+      20%, 36% {
+        background-image: url('https://veritasprime.com/wp-content/uploads/2024/03/Women-working-on-laptops-in-a-tech-environment-1024x512.jpg');
+        transform: scale(1);
+      }
+      40%, 56% {
+        background-image: url('https://e1.pxfuel.com/desktop-wallpaper/296/471/desktop-wallpaper-computer-network-computer-vision.jpg');
+        transform: scale(1.1);
+      }
+      60%, 76% {
+        background-image: url('https://images.unsplash.com/photo-1550439062-609e1531270e?auto=format&fit=crop&w=1950&q=80');
+        transform: scale(1);
+      }
+      80%, 96% {
+        background-image: url('https://images.pexels.com/photos/610293/pexels-photo-610293.jpeg?cs=srgb&dl=pexels-david-bartus-43782-610293.jpg&fm=jpg');
+        transform: scale(1.1);
+      }
+      100% {
+        background-image: url('https://images.pexels.com/photos/610293/pexels-photo-610293.jpeg?cs=srgb&dl=pexels-david-bartus-43782-610293.jpg&fm=jpg');
+        transform: scale(1);
+      }
+    }
+    /* Scrolling Text Effect */
+  .scrolling-text {
+    animation: scrollText 10s linear infinite;
+  }
+
+  @keyframes scrollText {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(-100%);
+    }
+  }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="navbar-logo">
+    <div class="navbar-logo-text">INQUISITOR</div>
+    <svg class="navbar-logo-arrow" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+      <path d="M10 20 Q 60 35 110 20" fill="none" stroke="#FF9900" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+      <polygon points="110,20 102,12 102,28" fill="#FF9900" />
+    </svg>
+  </div>
+  <div class="navbar-search">
+    <input type="text" placeholder="Search Inquisitor Prime..." />
+    <button><svg width="20" height="20" fill="#000" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></button>
+  </div>
+  <div class="navbar-links">
+    <a href="#quiz">Quiz</a>
+    <a href="#game">Game</a>
+    <a href="#secrets">Secrets</a>
+    <a href="#contact">Contact</a>
+    <a href="whos-watching.html" class="user-profile">
+      <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+      Hello, Manasa
+    </a>
+  </div>
+</nav>
+
+<!-- HERO SECTION -->
+
+<section class="hero relative h-screen flex justify-center items-center text-center px-4 pt-20">
+    <!-- Background Image Animation with Slight Blur -->
+    <div class="absolute inset-0 bg-cover bg-center" style="animation: changeImage 30s infinite; filter: blur(1px);"></div>
+
+    <!-- Fun Typewriter Effect Text -->
+    <div class="z-10 text-center text-white px-8 md:px-16 max-w-2xl overflow-hidden w-full">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4" id="typewriter"></h1>
+
+    </div>
+</section>
+
+<style>
+
+
+    /* Typewriter effect */
+    #typewriter {
+        font-family: 'Courier New', monospace;
+        font-size: 1.5rem;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 4px solid #FF9900;
+        width: 0;
+        animation: typing 4s steps(45) 1s forwards, blink 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+        from {
+            width: 0;
+        }
+        to {
+            width: 100%;
+        }
+    }
+
+    @keyframes blink {
+        50% {
+            border-color: transparent;
+        }
+    }
+
+    .prime-btn {
+        background-color: #FF9900;
+        border: none;
+        border-radius: 3px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+
+    .prime-btn:hover {
+        background-color: #FF7300;
+        transform: scale(1.1);
+    }
+</style>
+
+<script>
+    // Typewriter effect text
+    const text = "Wait, did I just get an upgrade?"; // Full text to type
+    let i = 0;
+    const speed = 100; // Speed of typing effect
+    
+    function typeWriter() {
+        if (i < text.length) {
+            document.getElementById("typewriter").innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, speed); // Continue typing
+        }
+    }
+
+    typeWriter(); // Start typing when the page loads
+</script>
+
+
+<!-- Combined QUIZ & GAME SECTION -->
+<section class="px-6 md:px-12 py-20 bg-[#1a2526]">
+    <h2 class="section-title text-[#FF9900] text-center mb-8 font-semibold text-3xl">🎯 Quiz & 💾 Game</h2>
+  
+    <!-- Flex Container for Side-by-Side Layout -->
+    <div class="flex flex-wrap justify-center gap-8">
+  
+      <!-- QUIZ CARD -->
+      <div class="max-w-md bg-[#232F3E] p-8 rounded-lg shadow-xl">
+        <p class="mb-6 text-gray-300 text-lg text-center">What's Manasa's late-night dev fuel?</p>
+        <!-- Answer Buttons with Hover Effects -->
+        <div class="space-y-4">
+          <button onclick="checkAnswer('lofi')" class="prime-btn w-full py-3 text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:bg-[#FF9900]">
+            Lo-fi + Terminal
+          </button>
+          <button onclick="checkAnswer('chai')" class="prime-btn w-full py-3 text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:bg-[#FF9900]">
+            Masala Chai + VSCode
+          </button>
+          <button onclick="checkAnswer('panic')" class="prime-btn w-full py-3 text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:bg-[#FF9900]">
+            Panic Mode + Debugging
+          </button>
+        </div>
+        <!-- Result -->
+        <p id="quiz-result" class="text-green-400 mt-4 font-semibold text-center hidden"></p>
+      </div>
+  
+      <!-- GAME CARD -->
+      <div class="max-w-md bg-[#232F3E] p-6 rounded-lg shadow-lg">
+        <p class="mb-4 text-gray-300 text-center">Enter the passcode to reveal a fun fact:</p>
+        <input id="code-input" type="text" class="w-full p-3 rounded bg-gray-700 text-white mb-3 placeholder-gray-400" placeholder="Hint: Classical passion..." />
+        <button onclick="checkCode()" class="prime-btn w-full py-3 text-xl font-semibold transition-all duration-300 transform hover:bg-[#FF9900] hover:scale-105">
+          Submit
+        </button>
+        <p id="game-result" class="text-teal-400 mt-4 font-semibold text-center hidden"></p>
+      </div>
+  
+    </div>
+</section>
+
+<style>
+    /* Prime Button Styles */
+    .prime-btn {
+        background-color: #232F3E;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+
+    .prime-btn:hover {
+        background-color: #FF9900;
+        transform: scale(1.1);
+    }
+
+    /* Section and Title Styling */
+    .section-title {
+        font-size: 2rem;
+        color: #FF9900;
+        text-transform: uppercase;
+    }
+
+    /* Input field */
+    input:focus {
+        outline: none;
+        box-shadow: 0 0 10px rgba(255, 153, 0, 0.5);
+    }
+
+    /* Custom Card Shadows */
+    .max-w-md {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+</style>
+
+  
+
+<!-- JOKES SECTION -->
+<!-- JOKES SECTION -->
+<section id="jokes" class="px-6 md:px-12 py-20 bg-[#131921]">
+    <h2 class="section-title text-[#FF9900] text-center mb-8">Developer Jokes</h2>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+  
+      <!-- New Joke 1 -->
+      <div class="bg-[#232F3E] p-4 rounded card-hover transition-all shadow">
+        <h4 class="text-lg font-semibold mb-2 text-[#00A8E1]">Why do Java developers wear glasses?</h4>
+        <p class="text-gray-300 text-sm">Because they can't C#! 👓</p>
+      </div>
+  
+      <!-- New Joke 2 -->
+      <div class="bg-[#232F3E] p-4 rounded card-hover transition-all shadow">
+        <h4 class="text-lg font-semibold mb-2 text-[#00A8E1]">Why do programmers hate working with HTML?</h4>
+        <p class="text-gray-300 text-sm">Because it’s all markup! 😅</p>
+      </div>
+  
+      <!-- Joke 3 (Unchanged) -->
+      <div class="bg-[#232F3E] p-4 rounded card-hover transition-all shadow">
+        <h4 class="text-lg font-semibold mb-2 text-[#00A8E1]">How many programmers does it take to change a light bulb?</h4>
+        <p class="text-gray-300 text-sm">None. It's a hardware problem! 💡</p>
+      </div>
+  
+      <!-- Joke 4 -->
+      <div class="bg-[#232F3E] p-4 rounded card-hover transition-all shadow">
+        <h4 class="text-lg font-semibold mb-2 text-[#00A8E1]">What’s a programmer’s favourite hangout spot?</h4>
+        <p class="text-gray-300 text-sm">The breakpoint! 🛑</p>
+      </div>
+  
+      <!-- Joke 5 -->
+      <div class="bg-[#232F3E] p-4 rounded card-hover transition-all shadow">
+        <h4 class="text-lg font-semibold mb-2 text-[#00A8E1]">Why did the developer go broke?</h4>
+        <p class="text-gray-300 text-sm">Because he used up all his cache! 💸</p>
+      </div>
+  
+      <!-- New Joke 6 -->
+      <div class="bg-[#232F3E] p-4 rounded card-hover transition-all shadow">
+        <h4 class="text-lg font-semibold mb-2 text-[#00A8E1]">Why do Python developers prefer dark mode?</h4>
+        <p class="text-gray-300 text-sm">Because the light attracts bugs! 🐞</p>
+      </div>
+  
+    </div>
+  </section>
+  
+  
+
+<!-- CONTACT SECTION -->
+<section id="contact" class="text-center px-6 md:px-12 py-20 bg-[#1A2526]">
+    <h2 class="text-3xl font-bold text-white mb-4">You've Reached the End... Or Have You?</h2>
+    <p class="text-gray-400 mb-6">Let’s dive into Prime secrets, endless coffee, and some epic code!</p>
+    <a href="mailto:manasakaranam6199@gmail.com" class="prime-btn px-8 py-3 text-lg hover:bg-[#FF7300] transition-colors duration-300">Shoot Me a Message</a>
+  </section>
+  
+
+<!-- JS -->
+<script>
+  function startAdventure() {
+    alert("Welcome to the Prime Lounge. Grab your chai and scroll!");
+  }
+
+  function checkAnswer(ans) {
+    const result = document.getElementById("quiz-result");
+    result.style.display = "block";
+    result.classList.remove("hidden");
+    result.textContent = ans === 'lofi'
+      ? "Correct! Lo-fi and code = my therapy."
+      : "Close, but not quite Prime enough.";
+  }
+
+  function checkCode() {
+    const input = document.getElementById("code-input").value.toLowerCase();
+    const result = document.getElementById("game-result");
+    result.style.display = "block";
+    result.classList.remove("hidden");
+    result.textContent = input === "bharatanatyam"
+      ? "✅ Yup! My classical side energizes my tech brain."
+      : "❌ Not quite. Hint: It involves rhythm and culture.";
+  }
+
+  // Console Easter Egg
+  console.log("Type manasaReveal() to unlock a Prime thought...");
+  function manasaReveal() {
+    console.log("🧠 Prime Thought: Curiosity doesn't just kill cats. It builds engineers.");
+  }
+</script>
+
+</body>
+</html>

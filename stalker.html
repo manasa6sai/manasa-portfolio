@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Inquisitor Prime | System Compromised</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Original styles remain unchanged */
+    body {
+      font-family: 'Roboto Condensed', sans-serif;
+      background: linear-gradient(180deg, #1A2526 0%, #0F171E 100%);
+      color: #FFFFFF;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Enhanced animations and effects */
+    @keyframes fireFloat {
+      0%, 100% {
+        transform: translateY(0) scale(1) rotate(0deg);
+        opacity: 0.8;
+      }
+      50% {
+        transform: translateY(-20px) scale(1.2) rotate(5deg);
+        opacity: 1;
+      }
+    }
+
+    @keyframes glitchEffect {
+      0% {
+        transform: translate(2px, 2px);
+        text-shadow: -2px 0 #ff0000, 2px 2px #0000ff;
+      }
+      25% {
+        transform: translate(-2px, -2px);
+        text-shadow: 2px 0 #00ff00, -2px -2px #ff0000;
+      }
+      50% {
+        transform: translate(1px, -1px);
+        text-shadow: -1px 0 #0000ff, 1px 1px #00ff00;
+      }
+      75% {
+        transform: translate(-1px, 1px);
+        text-shadow: 1px 0 #ff0000, -1px -1px #0000ff;
+      }
+      100% {
+        transform: translate(2px, 2px);
+        text-shadow: -2px 0 #ff0000, 2px 2px #0000ff;
+      }
+    }
+
+    @keyframes explode {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(5);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 0;
+      }
+    }
+
+    .fire-particle {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background: radial-gradient(circle, rgba(255,69,0,0.8) 0%, rgba(255,0,0,0) 70%);
+      border-radius: 50%;
+      animation: fireFloat 3s infinite;
+      pointer-events: none;
+    }
+
+    .glitch-text {
+      animation: glitchEffect 0.3s infinite;
+    }
+
+    .system-compromised {
+      background: rgba(0, 0, 0, 0.9);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .prime-glow {
+      text-shadow: 0 0 12px rgba(0, 168, 225, 0.6);
+    }
+
+    .prime-btn {
+      background-color: #00A8E1;
+      color: white;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      border-radius: 4px;
+    }
+
+    .prime-btn:hover {
+      background-color: #00CFFF;
+      transform: translateY(-2px);
+    }
+
+    /* Explosion effect for transition */
+    .explosion {
+      animation: explode 2s forwards;
+    }
+  </style>
+</head>
+<body>
+  <!-- System Compromised Overlay -->
+  <div id="systemCompromised" class="system-compromised">
+    <h1 class="glitch-text text-6xl text-red-600 font-bold mb-8">SYSTEM COMPROMISED</h1>
+    <div class="text-3xl text-white mb-8 glitch-text">Security Protocols Breached</div>
+    <div class="fire-container"></div>
+    <button onclick="restoreSystem()" class="bg-red-600 text-white px-8 py-4 rounded-lg text-xl font-bold hover:bg-red-700 transition-all">
+      Restore System
+    </button>
+  </div>
+
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+
+  <script>
+    // Fire particle effect
+    function createFireParticles() {
+      const container = document.querySelector('.fire-container');
+      for (let i = 0; i < 50; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'fire-particle';
+        particle.style.left = Math.random() * 100 + 'vw';
+        particle.style.animationDelay = Math.random() * 2 + 's';
+        container.appendChild(particle);
+      }
+    }
+
+    // Start the hijack effect as soon as the page loads
+    window.onload = function() {
+      const overlay = document.getElementById('systemCompromised');
+      document.body.style.overflow = 'hidden';
+      overlay.classList.add('active');
+      createFireParticles();
+    };
+
+    function restoreSystem() {
+      const overlay = document.getElementById('systemCompromised');
+      overlay.classList.add('explosion');  // Add explosion animation
+
+      // Wait for animation to finish, then redirect to inquisitor.html
+      setTimeout(() => {
+        window.location.href = "inquisitor.html";  // Change the path if necessary
+      }, 2000);  // Match the duration of the explosion animation
+    }
+  </script>
+</body>
+</html>
