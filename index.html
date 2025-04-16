@@ -39,7 +39,7 @@
 <body class="bg-black text-white h-screen flex flex-col items-center justify-center overflow-hidden font-netflix">
 
   <!-- 🔊 Netflix Sound -->
-  <audio id="netflix-sound" preload="auto" autoplay>
+  <audio id="netflix-sound" preload="auto">
     <source src="netflix.mp3" type="audio/mpeg" />
   </audio>
 
@@ -54,25 +54,22 @@
       <span>A</span>
     </h1>
 
-    <p class="mt-4 text-gray-400 text-lg">Welcome to my Portfolio</p>
-
-    <a href="whos-watching.html">
-      <button class="mt-10 px-8 py-3 bg-red-600 hover:bg-red-700 text-white rounded-full shadow-lg transition">
-        Enter
-      </button>
-    </a>
+    <p class="mt-4 text-gray-400 text-lg">Welcome! Click to Enter</p>
   </div>
 
-  <!-- Play Sound Logic -->
+  <!-- Play Sound and Redirect Logic -->
   <script>
-    window.addEventListener('DOMContentLoaded', () => {
+    document.body.addEventListener('click', () => {
       const audio = document.getElementById('netflix-sound');
-      // Ensure the sound plays even if autoplay is blocked
       audio.play().catch(() => {
-        document.body.addEventListener('click', () => {
-          audio.play();
-        }, { once: true });
+        // Fallback if autoplay is blocked
+        console.log("Audio play blocked, but user clicked, so sound should play.");
       });
+
+      // Redirect to the "whos-watching.html" page after playing sound
+      setTimeout(() => {
+        window.location.href = "whos-watching.html";
+      }, 3500);  // Adjust the delay (in ms) if needed
     });
   </script>
 
