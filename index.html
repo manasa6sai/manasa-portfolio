@@ -39,7 +39,7 @@
 <body class="bg-black text-white h-screen flex flex-col items-center justify-center overflow-hidden font-netflix">
 
   <!-- 🔊 Netflix Sound -->
-  <audio id="netflix-sound" preload="auto">
+  <audio id="netflix-sound" preload="auto" autoplay>
     <source src="netflix.mp3" type="audio/mpeg" />
   </audio>
 
@@ -67,14 +67,12 @@
   <script>
     window.addEventListener('DOMContentLoaded', () => {
       const audio = document.getElementById('netflix-sound');
-      setTimeout(() => {
-        audio.play().catch(() => {
-          // fallback if autoplay is blocked
-          document.body.addEventListener('click', () => {
-            audio.play();
-          }, { once: true });
-        });
-      }, 300);
+      // Ensure the sound plays even if autoplay is blocked
+      audio.play().catch(() => {
+        document.body.addEventListener('click', () => {
+          audio.play();
+        }, { once: true });
+      });
     });
   </script>
 
