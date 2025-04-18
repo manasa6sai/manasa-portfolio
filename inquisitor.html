@@ -349,7 +349,7 @@
 
 <script>
     // Typewriter effect text
-    const text = "Just a different theme :)"; // Full text to type
+    const text = "Welcome curious soul :)"; // Full text to type
     let i = 0;
     const speed = 100; // Speed of typing effect
     
@@ -364,169 +364,40 @@
     typeWriter(); // Start typing when the page loads
 </script>
 
-
-<!-- Combined QUIZ & GAME SECTION -->
-<section class="px-6 md:px-12 py-20 bg-[#1a2526]">
-    <h2 class="section-title text-[#3070F0] text-center mb-8 font-semibold text-3xl">🎯 Quiz & 💾 Game</h2>
-  
-    <!-- Flex Container for Side-by-Side Layout -->
-    <div class="flex flex-wrap justify-center gap-8">
-  
-      <!-- QUIZ CARD -->
-      <div class="max-w-md bg-[#232F3E] p-8 rounded-lg shadow-xl">
-        <p class="mb-6 text-gray-300 text-lg text-center">What's Manasa's late-night dev fuel?</p>
-        <!-- Answer Buttons with Hover Effects -->
-        <div class="space-y-4">
-          <button onclick="checkAnswer('lofi')" class="prime-btn w-full py-3 text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:bg-[#3070F0]">
-            Lo-fi + Terminal
-          </button>
-          <button onclick="checkAnswer('chai')" class="prime-btn w-full py-3 text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:bg-[#3070F0]">
-            Masala Chai + VSCode
-          </button>
-          <button onclick="checkAnswer('panic')" class="prime-btn w-full py-3 text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:bg-[#3070F0]">
-            Panic Mode + Debugging
-          </button>
-        </div>
-        <!-- Result -->
-        <p id="quiz-result" class="text-green-400 mt-4 font-semibold text-center hidden"></p>
-      </div>
-  
-      <!-- GAME CARD -->
-      <div class="max-w-md bg-[#232F3E] p-6 rounded-lg shadow-lg">
-        <p class="mb-4 text-gray-300 text-center">Enter the passcode to reveal a fun fact:</p>
-        <input id="code-input" type="text" class="w-full p-3 rounded bg-gray-700 text-white mb-3 placeholder-gray-400" placeholder="Hint: Classical passion..." />
-        <button onclick="checkCode()" class="prime-btn w-full py-3 text-xl font-semibold transition-all duration-300 transform hover:bg-[#3070F0] hover:scale-105">
-          Submit
-        </button>
-        <p id="game-result" class="text-teal-400 mt-4 font-semibold text-center hidden"></p>
-      </div>
-  
+<!-- AMAZON-STYLE CAROUSEL SECTION -->
+<!-- FUNNY GIF SECTION -->
+<!-- FUNNY GIF SECTION -->
+<section class="py-20 px-6 bg-[#0F171E]">
+  <h2 class="text-3xl font-bold text-center text-[#00A8E1] mb-4"> Prime Reaction Gallery</h2>
+  <p class="text-center text-gray-400 mb-10">A curated carousel of relatable dev moments — because coding is drama too.</p>
+  <div class="overflow-x-auto whitespace-nowrap flex gap-8 px-4 pb-6">
+    <div class="inline-block w-80 bg-[#232F3E] rounded-2xl shadow-xl overflow-hidden transform hover:scale-105 transition-all">
+      <img src="https://i.pinimg.com/originals/3d/65/b1/3d65b155a6a2aa4fc3544916408a712f.gif" alt="debugging gif" class="w-full h-56 object-cover">
+      <div class="p-4 text-white text-center text-sm">Me trying to debug at 3am</div>
     </div>
+    <div class="inline-block w-80 bg-[#232F3E] rounded-2xl shadow-xl overflow-hidden transform hover:scale-105 transition-all">
+      <img src="https://i.pinimg.com/originals/37/87/78/378778d2d90df7b67df885575c6502e2.gif" alt="done gif" class="w-full h-56 object-cover">
+      <div class="p-4 text-white text-center text-sm">When it finally compiles</div>
+    </div>
+    <div class="inline-block w-80 bg-[#232F3E] rounded-2xl shadow-xl overflow-hidden transform hover:scale-105 transition-all">
+      <img src="https://i0.wp.com/media1.giphy.com/media/11i7RuOORxP7iM/giphy.gif" alt="dance gif" class="w-full h-56 object-cover">
+      <div class="p-4 text-white text-center text-sm">That deploy dance 🕺</div>
+    </div>
+    <div class="inline-block w-80 bg-[#232F3E] rounded-2xl shadow-xl overflow-hidden transform hover:scale-105 transition-all">
+      <img src="https://media.tenor.com/swYDigA0_sAAAAAM/reactions.gif" alt="ai gif" class="w-full h-56 object-cover">
+      <div class="p-4 text-white text-center text-sm">When the AI actually helps</div>
+    </div>
+  </div>
+
+
+
+<!-- FINAL SECTION -->
+<section class="py-20 px-6 bg-[#131921] text-center">
+  <h2 class="text-4xl font-bold text-[#00A8E1] mb-6">☕ Let's Grab a Coffee</h2>
+  <p class="text-lg text-gray-300 max-w-xl mx-auto mb-6">If you've laughed, scrolled, or said “same” — maybe it's time we chat for real. Tech talk, career stories, or memes welcome.</p>
+  <a href="mailto:manasakaranam6199@gmail.com" class="inline-block bg-[#00A8E1] hover:bg-[#00CFFF] text-white font-semibold px-8 py-3 rounded-full transition-all duration-300">Shoot Me a Message</a>
 </section>
 
-<style>
-    /* Prime Button Styles */
-    .prime-btn {
-        background-color: #232F3E;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        font-weight: bold;
-        transition: all 0.3s ease;
-    }
-
-    .prime-btn:hover {
-        background-color: #3070F0;
-        transform: scale(1.1);
-    }
-
-    /* Section and Title Styling */
-    .section-title {
-        font-size: 2rem;
-        color: #3070F0;
-        text-transform: uppercase;
-    }
-
-    /* Input field */
-    input:focus {
-        outline: none;
-        box-shadow: 0 0 10px rgba(255, 153, 0, 0.5);
-    }
-
-    /* Custom Card Shadows */
-    .max-w-md {
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    }
-</style>
-
-  
-
-<!-- JOKES SECTION -->
-<!-- JOKES SECTION -->
-<section id="jokes" class="px-6 md:px-12 py-20 bg-[#131921]">
-    <h2 class="section-title text-[#3070F0] text-center mb-8">Developer Jokes</h2>
-    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-  
-      <!-- New Joke 1 -->
-      <div class="bg-[#232F3E] p-4 rounded card-hover transition-all shadow">
-        <h4 class="text-lg font-semibold mb-2 text-[#00A8E1]">Why do Java developers wear glasses?</h4>
-        <p class="text-gray-300 text-sm">Because they can't C#! 👓</p>
-      </div>
-  
-      <!-- New Joke 2 -->
-      <div class="bg-[#232F3E] p-4 rounded card-hover transition-all shadow">
-        <h4 class="text-lg font-semibold mb-2 text-[#00A8E1]">Why do programmers hate working with HTML?</h4>
-        <p class="text-gray-300 text-sm">Because it’s all markup! 😅</p>
-      </div>
-  
-      <!-- Joke 3 (Unchanged) -->
-      <div class="bg-[#232F3E] p-4 rounded card-hover transition-all shadow">
-        <h4 class="text-lg font-semibold mb-2 text-[#00A8E1]">How many programmers does it take to change a light bulb?</h4>
-        <p class="text-gray-300 text-sm">None. It's a hardware problem! 💡</p>
-      </div>
-  
-      <!-- Joke 4 -->
-      <div class="bg-[#232F3E] p-4 rounded card-hover transition-all shadow">
-        <h4 class="text-lg font-semibold mb-2 text-[#00A8E1]">What’s a programmer’s favourite hangout spot?</h4>
-        <p class="text-gray-300 text-sm">The breakpoint! 🛑</p>
-      </div>
-  
-      <!-- Joke 5 -->
-      <div class="bg-[#232F3E] p-4 rounded card-hover transition-all shadow">
-        <h4 class="text-lg font-semibold mb-2 text-[#00A8E1]">Why did the developer go broke?</h4>
-        <p class="text-gray-300 text-sm">Because he used up all his cache! 💸</p>
-      </div>
-  
-      <!-- New Joke 6 -->
-      <div class="bg-[#232F3E] p-4 rounded card-hover transition-all shadow">
-        <h4 class="text-lg font-semibold mb-2 text-[#00A8E1]">Why do Python developers prefer dark mode?</h4>
-        <p class="text-gray-300 text-sm">Because the light attracts bugs! 🐞</p>
-      </div>
-  
-    </div>
-  </section>
-  
-  
-
-<!-- CONTACT SECTION -->
-<section id="contact" class="text-center px-6 md:px-12 py-20 bg-[#1A2526]">
-    <h2 class="text-3xl font-bold text-white mb-4">You've Reached the End... Or Have You?</h2>
-    <p class="text-gray-400 mb-6">Let’s dive into Prime secrets, endless coffee, and some epic code!</p>
-    <a href="mailto:manasakaranam6199@gmail.com" class="prime-btn px-8 py-3 text-lg hover:bg-[#FF7300] transition-colors duration-300">Shoot Me a Message</a>
-  </section>
-  
-
-<!-- JS -->
-<script>
-  function startAdventure() {
-    alert("Welcome to the Prime Lounge. Grab your chai and scroll!");
-  }
-
-  function checkAnswer(ans) {
-    const result = document.getElementById("quiz-result");
-    result.style.display = "block";
-    result.classList.remove("hidden");
-    result.textContent = ans === 'lofi'
-      ? "Correct! Lo-fi and code = my therapy."
-      : "Close, but not quite Prime enough.";
-  }
-
-  function checkCode() {
-    const input = document.getElementById("code-input").value.toLowerCase();
-    const result = document.getElementById("game-result");
-    result.style.display = "block";
-    result.classList.remove("hidden");
-    result.textContent = input === "bharatanatyam"
-      ? "✅ Yup! My classical side energizes my tech brain."
-      : "❌ Not quite. Hint: It involves rhythm and culture.";
-  }
-
-  // Console Easter Egg
-  console.log("Type manasaReveal() to unlock a Prime thought...");
-  function manasaReveal() {
-    console.log("🧠 Prime Thought: Curiosity doesn't just kill cats. It builds engineers.");
-  }
-</script>
 
 </body>
 </html>
