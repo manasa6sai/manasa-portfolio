@@ -34,23 +34,158 @@
 <body class="bg-black text-white font-sans">
   <div id="vanta-bg"></div>
 
-  <!-- NAVBAR -->
-  <nav class="w-full flex items-center justify-between px-8 py-4 z-20 bg-black bg-opacity-70">
-    <div class="flex items-center gap-8">
-      <a href="whos-watching.html" class="text-2xl font-bold text-red-600 hover:text-white transition">MANASA</a>
-      <ul class="flex gap-6 text-sm text-gray-300">
-        <li><a href="recruiter.html" class="hover:text-white transition">Home</a></li>
-        <li><a href="professional.html" class="hover:text-white transition">Professional</a></li>
-        <li><a href="skills.html" class="hover:text-white transition">Skills</a></li>
-        <li><a href="projects.html" class="hover:text-white transition">Projects</a></li>
-        <li><a href="hireme.html" class="text-white font-semibold">Hire Me</a></li>
-      </ul>
-    </div>
-    <ul class="flex gap-6 text-sm text-gray-300">
-      <li><a href="https://github.com/manasa6sai" target="_blank" class="hover:text-white transition">GitHub</a></li>
-      <li><a href="https://linkedin.com/in/manasa-sai-karanam" target="_blank" class="hover:text-white transition">LinkedIn</a></li>
+<!-- NAVBAR -->
+<nav class="fixed top-0 left-0 w-full flex items-center justify-between px-8 py-4 z-20 bg-gradient-to-b from-black to-transparent text-white">
+
+  <!-- Left: Logo + Main Navigation Links -->
+  <div class="flex items-center gap-8">
+    <a href="whos-watching.html" class="text-2xl font-bold text-[#E50914] hover:text-white transition-colors duration-300">MANASA</a>
+    <ul class="flex gap-6 text-sm">
+      <li><a href="#" id="home-link" class="nav-link">Home</a></li>
+      <li><a href="professional.html" class="nav-link">Professional</a></li>
+      <li><a href="skills.html" class="nav-link">Skills</a></li>
+      <li><a href="projects.html" class="nav-link">Projects</a></li>
+      <li><a href="hireme.html" class="nav-link">Hire Me</a></li>
     </ul>
-  </nav>
+  </div>
+
+  <!-- Right: Social + Profile Switcher -->
+  <div class="flex items-center gap-6 text-sm relative group">
+    <a href="https://github.com/manasa6sai" target="_blank" class="nav-link">GitHub</a>
+    <a href="https://linkedin.com/in/manasa-sai-karanam" target="_blank" class="nav-link">LinkedIn</a>
+
+    <!-- Trigger -->
+    <div class="flex items-center gap-2 cursor-pointer">
+      <div id="profile-smiley" class="smile-face w-7 h-7 rounded-md relative bg-[#E50914]">
+        <div class="smile"></div>
+      </div>
+      <span>Switch Profile ▾</span>
+    </div>
+
+    <!-- Dropdown Menu -->
+    <div class="absolute right-0 top-10 w-56 bg-white text-black rounded-md shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 z-30 p-2">
+      <a href="recruiter.html" class="flex items-center gap-3 p-2 hover:bg-gray-100 rounded">
+        <div class="smile-face bg-blue-500 w-8 h-8 rounded-md relative"><div class="smile"></div></div>
+        <span class="text-sm font-medium">Recruiter</span>
+      </a>
+      <a href="peer.html" class="flex items-center gap-3 p-2 hover:bg-gray-100 rounded">
+        <div class="smile-face bg-yellow-400 w-8 h-8 rounded-md relative"><div class="smile"></div></div>
+        <span class="text-sm font-medium">Peer</span>
+      </a>
+      <a href="mentor.html" class="flex items-center gap-3 p-2 hover:bg-gray-100 rounded">
+        <div class="smile-face bg-gradient-to-br from-purple-400 to-pink-500 w-8 h-8 rounded-md relative"><div class="smile"></div></div>
+        <span class="text-sm font-medium">Mentor</span>
+      </a>
+      <a href="stalker.html" class="flex items-center gap-3 p-2 hover:bg-gray-100 rounded">
+        <div class="smile-face bg-red-500 w-8 h-8 rounded-md relative"><div class="smile"></div></div>
+        <span class="text-sm font-medium">Inquisitor</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- TAILWIND + CUSTOM STYLES -->
+<style>
+  .nav-link {
+    color: #ccc;
+    transition: all 0.3s ease;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+  }
+
+  .nav-link:hover {
+    color: white;
+    border-bottom: 2px solid #E50914;
+  }
+
+  .nav-link.active {
+    color: white;
+    border-bottom: 2px solid #E50914;
+  }
+
+  .smile-face {
+    position: relative;
+  }
+
+  .smile-face::before,
+  .smile-face::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+  }
+
+  .smile-face::before {
+    top: 25%;
+    left: 25%;
+  }
+
+  .smile-face::after {
+    top: 25%;
+    right: 25%;
+  }
+
+  .smile {
+    position: absolute;
+    width: 50%;
+    height: 20%;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom: 2px solid white;
+    border-radius: 0 0 9999px 9999px;
+  }
+</style>
+
+<!-- JS to Auto-highlight Current Page -->
+<script>
+  const current = location.pathname.split("/").pop();
+  document.querySelectorAll(".nav-link").forEach(link => {
+    const href = link.getAttribute("href");
+    if (href === current || (href === "index.html" && current === "")) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<script>
+  const currentPage = location.pathname.split("/").pop();
+  const profilePages = ["recruiter.html", "peer.html", "mentor.html", "inquisitor.html"];
+  const homeLink = document.getElementById("home-link");
+  const profileSmiley = document.getElementById("profile-smiley");
+  const activeProfile = localStorage.getItem("activeProfile") || currentPage;
+
+  // Dynamically set "Home" based on active profile
+  if (profilePages.includes(activeProfile)) {
+    homeLink.setAttribute("href", activeProfile);
+    if (activeProfile === currentPage) homeLink.classList.add("active");
+  } else {
+    homeLink.setAttribute("href", "index.html");
+    if (currentPage === "" || currentPage === "index.html") homeLink.classList.add("active");
+  }
+
+  // Highlight current nav link
+  document.querySelectorAll(".nav-link").forEach(link => {
+    const href = link.getAttribute("href");
+    if (href === currentPage) link.classList.add("active");
+  });
+
+  // Dynamically style top-right smiley icon
+  if (profileSmiley) {
+    let bgClass = "bg-[#E50914]"; // default
+    if (activeProfile === "peer.html") bgClass = "bg-yellow-400";
+    if (activeProfile === "recruiter.html") bgClass = "bg-blue-500";
+    if (activeProfile === "mentor.html") bgClass = "bg-gradient-to-br from-purple-400 to-pink-500";
+    if (activeProfile === "inquisitor.html") bgClass = "bg-red-500";
+
+    profileSmiley.className = `smile-face w-7 h-7 rounded-md relative ${bgClass}`;
+    profileSmiley.innerHTML = '<div class="smile"></div>';
+  }
+</script>
+
 
   <!-- HERO SECTION -->
   <section class="h-[70vh] flex flex-col items-center justify-center text-center px-6 bg-cover bg-center" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://thumbs.dreamstime.com/b/graduate-holding-hire-me-sign-high-quality-photo-332031776.jpg');">
@@ -64,7 +199,7 @@
 
   <!-- VALUE SECTION -->
   <section class="px-6 md:px-12 py-16">
-    <h3 class="text-3xl font-bold text-red-500 mb-6 border-b border-red-700 pb-2 w-fit">Why Hire Me?</h3>
+    <h3 class="text-3xl font-bold text-white mb-20">Why Hire Me?</h3>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       <div class="rounded-lg p-5 hire-card flex flex-col items-center text-center">
         <img src="https://c8.alamy.com/comp/2CBWDT1/isometric-vector-of-a-female-programmer-software-engineer-coding-on-desktop-2CBWDT1.jpg" alt="Code Icon" class="w-full h-36 object-cover rounded-md mb-4"/>
@@ -91,7 +226,7 @@
 
   <!-- ROLE MATCH SECTION -->
   <section class="px-6 md:px-12 py-12">
-    <h3 class="text-3xl font-bold text-red-500 mb-6 border-b border-red-700 pb-2 w-fit">Roles I Fit</h3>
+    <h3 class="text-3xl font-bold text-white mb-20">Roles I Fit</h3>
     <div class="flex flex-wrap gap-4">
       <span class="bg-gray-800 text-white px-4 py-2 rounded hover:ring-2 hover:ring-red-600">Backend Engineer</span>
       <span class="bg-gray-800 text-white px-4 py-2 rounded hover:ring-2 hover:ring-red-600">API Developer</span>
@@ -104,7 +239,7 @@
 
   <!-- CONTACT FORM -->
   <section id="contact" class="px-6 md:px-12 py-12">
-    <h3 class="text-3xl font-bold text-red-500 mb-6 border-b border-red-700 pb-2 w-fit">Let's Connect</h3>
+    <h3 class="text-3xl font-bold text-white mb-20">Let's Connect</h3>
     <form action="https://formspree.io/f/xjkyejaw" method="POST" class="max-w-2xl mx-auto space-y-4">
       <input type="text" name="name" placeholder="Your Name" class="w-full px-4 py-2 bg-gray-800 text-white rounded" required />
       <input type="email" name="email" placeholder="Your Email" class="w-full px-4 py-2 bg-gray-800 text-white rounded" required />

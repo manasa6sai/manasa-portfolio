@@ -5,45 +5,232 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Projects | Manasa Sai Karanam</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <style>
-.project-card img {
-  height: 180px;       /* Fixed height for uniformity */
-  width: 100%;         /* Full width */
-  object-fit: cover;   /* Crop to fill area without distortion */
-  border-radius: 0.5rem; /* Optional: rounded corners */
-}
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      background: radial-gradient(circle at center, rgba(20, 20, 20, 0.8) 0%, rgba(0, 0, 0, 1) 70%);
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .project-card img {
+      height: 180px;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 0.5rem;
+    }
 
     .project-card:hover {
       box-shadow: 0 0 15px #e50914, 0 0 30px #e50914;
     }
+
+    .status-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      padding: 0.25rem 0.75rem;
+      background: rgba(229, 9, 20, 0.9);
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: white;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.6; }
+      100% { opacity: 1; }
+    }
+
+    .nav-gradient {
+      background: linear-gradient(
+        270deg,
+        rgba(0,0,0,0.95),
+        rgba(229, 9, 20, 0.1),
+        rgba(0,0,0,0.95)
+      );
+      background-size: 200% 100%;
+      animation: gradient 15s ease infinite;
+      backdrop-filter: blur(8px);
+    }
+
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
   </style>
 </head>
 <body class="bg-black text-white font-sans">
+  <div id="particles-js"></div>
 
-  <!-- NAVIGATION BAR -->
-  <nav class="w-full flex items-center justify-between px-8 py-4 z-20 bg-black bg-opacity-70">
-    <div class="flex items-center gap-8">
-        <a href="whos-watching.html" class="text-2xl font-bold text-red-600 hover:text-white transition">MANASA</a>
-      <ul class="flex gap-6 text-sm text-gray-300">
-        <li><a href="recruiter.html" class="hover:text-white transition">Home</a></li>
-        <li><a href="professional.html" class="hover:text-white transition">Professional</a></li>
-        <li><a href="skills.html" class="hover:text-white transition">Skills</a></li>
-        <li><a href="projects.html" class="hover:text-white transition">Projects</a></li>
-        <li><a href="hireme.html" class="hover:text-white transition">Hire Me</a></li>
-      </ul>
-    </div>
-    <ul class="flex gap-6 text-sm text-gray-300">
-      <li><a href="https://github.com/manasa6sai" target="_blank" class="hover:text-white transition">GitHub</a></li>
-      <li><a href="https://linkedin.com/in/manasa-sai-karanam" target="_blank" class="hover:text-white transition">LinkedIn</a></li>
+<!-- NAVBAR -->
+<nav class="fixed top-0 left-0 w-full flex items-center justify-between px-8 py-4 z-20 bg-gradient-to-b from-black to-transparent text-white">
+
+  <!-- Left: Logo + Main Navigation Links -->
+  <div class="flex items-center gap-8">
+    <a href="whos-watching.html" class="text-2xl font-bold text-[#E50914] hover:text-white transition-colors duration-300">MANASA</a>
+    <ul class="flex gap-6 text-sm">
+      <li><a href="#" id="home-link" class="nav-link">Home</a></li>
+      <li><a href="professional.html" class="nav-link">Professional</a></li>
+      <li><a href="skills.html" class="nav-link">Skills</a></li>
+      <li><a href="projects.html" class="nav-link">Projects</a></li>
+      <li><a href="hireme.html" class="nav-link">Hire Me</a></li>
     </ul>
-  </nav>
+  </div>
+
+  <!-- Right: Social + Profile Switcher -->
+  <div class="flex items-center gap-6 text-sm relative group">
+    <a href="https://github.com/manasa6sai" target="_blank" class="nav-link">GitHub</a>
+    <a href="https://linkedin.com/in/manasa-sai-karanam" target="_blank" class="nav-link">LinkedIn</a>
+
+    <!-- Trigger -->
+    <div class="flex items-center gap-2 cursor-pointer">
+      <div id="profile-smiley" class="smile-face w-7 h-7 rounded-md relative bg-[#E50914]">
+        <div class="smile"></div>
+      </div>
+      <span>Switch Profile ▾</span>
+    </div>
+
+    <!-- Dropdown Menu -->
+    <div class="absolute right-0 top-10 w-56 bg-white text-black rounded-md shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 z-30 p-2">
+      <a href="recruiter.html" class="flex items-center gap-3 p-2 hover:bg-gray-100 rounded">
+        <div class="smile-face bg-blue-500 w-8 h-8 rounded-md relative"><div class="smile"></div></div>
+        <span class="text-sm font-medium">Recruiter</span>
+      </a>
+      <a href="peer.html" class="flex items-center gap-3 p-2 hover:bg-gray-100 rounded">
+        <div class="smile-face bg-yellow-400 w-8 h-8 rounded-md relative"><div class="smile"></div></div>
+        <span class="text-sm font-medium">Peer</span>
+      </a>
+      <a href="mentor.html" class="flex items-center gap-3 p-2 hover:bg-gray-100 rounded">
+        <div class="smile-face bg-gradient-to-br from-purple-400 to-pink-500 w-8 h-8 rounded-md relative"><div class="smile"></div></div>
+        <span class="text-sm font-medium">Mentor</span>
+      </a>
+      <a href="stalker.html" class="flex items-center gap-3 p-2 hover:bg-gray-100 rounded">
+        <div class="smile-face bg-red-500 w-8 h-8 rounded-md relative"><div class="smile"></div></div>
+        <span class="text-sm font-medium">Inquisitor</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- TAILWIND + CUSTOM STYLES -->
+<style>
+  .nav-link {
+    color: #ccc;
+    transition: all 0.3s ease;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+  }
+
+  .nav-link:hover {
+    color: white;
+    border-bottom: 2px solid #E50914;
+  }
+
+  .nav-link.active {
+    color: white;
+    border-bottom: 2px solid #E50914;
+  }
+
+  .smile-face {
+    position: relative;
+  }
+
+  .smile-face::before,
+  .smile-face::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+  }
+
+  .smile-face::before {
+    top: 25%;
+    left: 25%;
+  }
+
+  .smile-face::after {
+    top: 25%;
+    right: 25%;
+  }
+
+  .smile {
+    position: absolute;
+    width: 50%;
+    height: 20%;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom: 2px solid white;
+    border-radius: 0 0 9999px 9999px;
+  }
+</style>
+
+<!-- JS to Auto-highlight Current Page -->
+<script>
+  const current = location.pathname.split("/").pop();
+  document.querySelectorAll(".nav-link").forEach(link => {
+    const href = link.getAttribute("href");
+    if (href === current || (href === "index.html" && current === "")) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<script>
+  const currentPage = location.pathname.split("/").pop();
+  const profilePages = ["recruiter.html", "peer.html", "mentor.html", "inquisitor.html"];
+  const homeLink = document.getElementById("home-link");
+  const profileSmiley = document.getElementById("profile-smiley");
+  const activeProfile = localStorage.getItem("activeProfile") || currentPage;
+
+  // Dynamically set "Home" based on active profile
+  if (profilePages.includes(activeProfile)) {
+    homeLink.setAttribute("href", activeProfile);
+    if (activeProfile === currentPage) homeLink.classList.add("active");
+  } else {
+    homeLink.setAttribute("href", "index.html");
+    if (currentPage === "" || currentPage === "index.html") homeLink.classList.add("active");
+  }
+
+  // Highlight current nav link
+  document.querySelectorAll(".nav-link").forEach(link => {
+    const href = link.getAttribute("href");
+    if (href === currentPage) link.classList.add("active");
+  });
+
+  // Dynamically style top-right smiley icon
+  if (profileSmiley) {
+    let bgClass = "bg-[#E50914]"; // default
+    if (activeProfile === "peer.html") bgClass = "bg-yellow-400";
+    if (activeProfile === "recruiter.html") bgClass = "bg-blue-500";
+    if (activeProfile === "mentor.html") bgClass = "bg-gradient-to-br from-purple-400 to-pink-500";
+    if (activeProfile === "inquisitor.html") bgClass = "bg-red-500";
+
+    profileSmiley.className = `smile-face w-7 h-7 rounded-md relative ${bgClass}`;
+    profileSmiley.innerHTML = '<div class="smile"></div>';
+  }
+</script>
+
 
   <!-- PROJECTS SECTION -->
-  <section class="px-6 md:px-12 py-10">
-    <h2 class="text-3xl font-extrabold text-red-500 border-b border-red-700 pb-2 w-fit mb-8">Top Projects</h2>
+  <section class="px-6 md:px-12 py-20 content">
+    <h2 class="text-3xl font-bold text-white mb-20">Top Projects</h2>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-
       <a href="https://github.com/manasa6sai/Job-Recommendation-Engine" target="_blank" class="block hover:opacity-90 transition duration-300">
         <div class="bg-[#1a1a1a] rounded-lg shadow-lg p-4 project-card">
           <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?fit=crop&w=600&q=80" class="rounded-md mb-3 w-full" alt="AI Job Matcher"/>
@@ -68,116 +255,210 @@
             <span class="bg-gray-700 text-xs px-2 py-1 rounded">PyTorch</span>
           </div>
         </div>
-
       </a>
 
       <a href="https://ieeexplore.ieee.org/document/9208805" target="_blank" class="block hover:opacity-90 transition duration-300">
-
-      <div class="bg-[#2c2b3c] rounded-lg shadow-lg p-4 project-card">
-        <img src="https://www.endress.com/__image/a/9341618/k/4450d62f2c50d24f37ab09c357366a6bf05419f9/ar/16-9/w/771/t/jpg/b/ffffff/n/true/fn/smart%20water%20network%20management.jpg" class="rounded-md mb-3 w-full" alt="ZJS Water Framework"/>
-        <h3 class="text-lg font-semibold text-red-400">ZJS Smart Water Framework</h3>
-        <p class="text-sm text-gray-300 mb-2">Optimized water flow using AI & satellite imagery – IEEE ACIT 2020.</p>
-        <div class="flex flex-wrap gap-2 mt-auto">
-          <span class="bg-gray-700 text-xs px-2 py-1 rounded">Opencv</span>
-          <span class="bg-gray-700 text-xs px-2 py-1 rounded">Satellite Imagery</span>
-          <span class="bg-gray-700 text-xs px-2 py-1 rounded">Optimization</span>
+        <div class="bg-[#2c2b3c] rounded-lg shadow-lg p-4 project-card">
+          <img src="https://www.endress.com/__image/a/9341618/k/4450d62f2c50d24f37ab09c357366a6bf05419f9/ar/16-9/w/771/t/jpg/b/ffffff/n/true/fn/smart%20water%20network%20management.jpg" class="rounded-md mb-3 w-full" alt="ZJS Water Framework"/>
+          <h3 class="text-lg font-semibold text-red-400">ZJS Smart Water Framework</h3>
+          <p class="text-sm text-gray-300 mb-2">Optimized water flow using AI & satellite imagery – IEEE ACIT 2020.</p>
+          <div class="flex flex-wrap gap-2 mt-auto">
+            <span class="bg-gray-700 text-xs px-2 py-1 rounded">Opencv</span>
+            <span class="bg-gray-700 text-xs px-2 py-1 rounded">Satellite Imagery</span>
+            <span class="bg-gray-700 text-xs px-2 py-1 rounded">Optimization</span>
+          </div>
         </div>
-      </div>
-
       </a>
 
-
-
       <a href="https://github.com/manasa6sai/AdaptiveCacheDesignSimulator" target="_blank" class="block hover:opacity-90 transition duration-300">
-
-
-      <div class="bg-[#1e2f3a] rounded-lg shadow-lg p-4 project-card">
-        <img src="https://www.bolton365.net/wp-content/uploads/2021/01/cache-scaled-3.jpg" class="rounded-md mb-3 w-full" alt="Cache Simulator"/>
-        <h3 class="text-lg font-semibold text-red-400">Adaptive Cache Simulator</h3>
-        <p class="text-sm text-gray-300 mb-2">Simulated cache behavior using logical segmentation in C++.</p>
-        <div class="flex flex-wrap gap-2 mt-auto">
-          <span class="bg-gray-700 text-xs px-2 py-1 rounded">C++</span>
-          <span class="bg-gray-700 text-xs px-2 py-1 rounded">System Design</span>
+        <div class="bg-[#1e2f3a] rounded-lg shadow-lg p-4 project-card">
+          <img src="https://www.bolton365.net/wp-content/uploads/2021/01/cache-scaled-3.jpg" class="rounded-md mb-3 w-full" alt="Cache Simulator"/>
+          <h3 class="text-lg font-semibold text-red-400">Adaptive Cache Simulator</h3>
+          <p class="text-sm text-gray-300 mb-2">Simulated cache behavior using logical segmentation in C++.</p>
+          <div class="flex flex-wrap gap-2 mt-auto">
+            <span class="bg-gray-700 text-xs px-2 py-1 rounded">C++</span>
+            <span class="bg-gray-700 text-xs px-2 py-1 rounded">System Design</span>
+          </div>
         </div>
-      </div>
-
       </a>
       
       <a href="https://github.com/manasa6sai/DepressionDetectionData" target="_blank" class="block hover:opacity-90 transition duration-300">
-
-      <div class="bg-[#31243e] rounded-lg shadow-lg p-4 project-card">
-        <img src="https://miro.medium.com/v2/resize:fit:1024/1*e2dPfigAUXeBTE_1QxzTbA.png" class="rounded-md mb-3 w-full" alt="Depression Detection"/>
-        <h3 class="text-lg font-semibold text-red-400">AI-based Depression Detection</h3>
-        <p class="text-sm text-gray-300 mb-2">Built ML models to detect depressive signals from speech & text.</p>
-        <div class="flex flex-wrap gap-2 mt-auto">
-          <span class="bg-gray-700 text-xs px-2 py-1 rounded">ML</span>
-          <span class="bg-gray-700 text-xs px-2 py-1 rounded">Speech</span>
-          <span class="bg-gray-700 text-xs px-2 py-1 rounded">NLP</span>
+        <div class="bg-[#31243e] rounded-lg shadow-lg p-4 project-card">
+          <img src="https://miro.medium.com/v2/resize:fit:1024/1*e2dPfigAUXeBTE_1QxzTbA.png" class="rounded-md mb-3 w-full" alt="Depression Detection"/>
+          <h3 class="text-lg font-semibold text-red-400">AI-based Depression Detection</h3>
+          <p class="text-sm text-gray-300 mb-2">Built ML models to detect depressive signals from speech & text.</p>
+          <div class="flex flex-wrap gap-2 mt-auto">
+            <span class="bg-gray-700 text-xs px-2 py-1 rounded">ML</span>
+            <span class="bg-gray-700 text-xs px-2 py-1 rounded">Speech</span>
+            <span class="bg-gray-700 text-xs px-2 py-1 rounded">NLP</span>
+          </div>
         </div>
-      </div>
-
       </a>
 
       <a href="https://github.com/manasa6sai/Banking-System-API" target="_blank" class="block hover:opacity-90 transition duration-300">
-
-      <div class="bg-[#203037] rounded-lg shadow-lg p-4 project-card">
-        <img src="https://d32ijn7u0aqfv4.cloudfront.net/wp/wp-content/uploads/raw/SOBK0422040_780x440_mobile.jpeg" class="rounded-md mb-3 w-full" alt="FastAPI Banking API" />
-        <h3 class="text-lg font-semibold text-red-400">Banking API with FastAPI</h3>
-        <p class="text-sm text-gray-300 mb-2">
-          Developed a secure banking API with role-based access, JWT auth, and transaction handling using FastAPI.
-        </p>
-        <div class="flex flex-wrap gap-2 mt-auto">
-          <span class="bg-gray-700 text-xs px-2 py-1 rounded">FastAPI</span>
-          <span class="bg-gray-700 text-xs px-2 py-1 rounded">JWT</span>
-          <span class="bg-gray-700 text-xs px-2 py-1 rounded">OAuth2</span>
-          <span class="bg-gray-700 text-xs px-2 py-1 rounded">Banking APIs</span>
+        <div class="bg-[#203037] rounded-lg shadow-lg p-4 project-card">
+          <img src="https://d32ijn7u0aqfv4.cloudfront.net/wp/wp-content/uploads/raw/SOBK0422040_780x440_mobile.jpeg" class="rounded-md mb-3 w-full" alt="FastAPI Banking API" />
+          <h3 class="text-lg font-semibold text-red-400">Banking API with FastAPI</h3>
+          <p class="text-sm text-gray-300 mb-2">
+            Developed a secure banking API with role-based access, JWT auth, and transaction handling using FastAPI.
+          </p>
+          <div class="flex flex-wrap gap-2 mt-auto">
+            <span class="bg-gray-700 text-xs px-2 py-1 rounded">FastAPI</span>
+            <span class="bg-gray-700 text-xs px-2 py-1 rounded">JWT</span>
+            <span class="bg-gray-700 text-xs px-2 py-1 rounded">OAuth2</span>
+            <span class="bg-gray-700 text-xs px-2 py-1 rounded">Banking APIs</span>
+          </div>
         </div>
-      </div>
-
       </a>
 
       <a href="https://github.com/manasa6sai/AuditEventsAPI" target="_blank" class="block hover:opacity-90 transition duration-300">
-
-      <div class="bg-[#1f1f2e] rounded-lg shadow-lg p-4 project-card">
-        <img src="https://media.licdn.com/dms/image/D4E12AQEKoLjLQrl4ew/article-cover_image-shrink_720_1280/0/1710496936561?e=2147483647&v=beta&t=iRBqnSNFOkZYuxLQBj9yvBfqGHu22zwYlR4-c-YVOkU" class="rounded-md mb-3 w-full" alt="Event Logs with Gin" />
-        <h3 class="text-lg font-semibold text-red-400">Event Logs Trail System</h3>
-        <p class="text-sm text-gray-300 mb-2">
-          Built a log trail system to capture audit events using Golang, Gin framework, and CSV/MySQL-based storage.
-        </p>
-        <div class="flex flex-wrap gap-2 mt-auto">
-          <span class="bg-gray-700 text-xs px-2 py-1 rounded">Golang</span>
-          <span class="bg-gray-700 text-xs px-2 py-1 rounded">Gin</span>
-          <span class="bg-gray-700 text-xs px-2 py-1 rounded">MySQL</span>
+        <div class="bg-[#1f1f2e] rounded-lg shadow-lg p-4 project-card">
+          <img src="https://media.licdn.com/dms/image/D4E12AQEKoLjLQrl4ew/article-cover_image-shrink_720_1280/0/1710496936561?e=2147483647&v=beta&t=iRBqnSNFOkZYuxLQBj9yvBfqGHu22zwYlR4-c-YVOkU" class="rounded-md mb-3 w-full" alt="Event Logs with Gin" />
+          <h3 class="text-lg font-semibold text-red-400">Event Logs Trail System</h3>
+          <p class="text-sm text-gray-300 mb-2">
+            Built a log trail system to capture audit events using Golang, Gin framework, and CSV/MySQL-based storage.
+          </p>
+          <div class="flex flex-wrap gap-2 mt-auto">
+            <span class="bg-gray-700 text-xs px-2 py-1 rounded">Golang</span>
+            <span class="bg-gray-700 text-xs px-2 py-1 rounded">Gin</span>
+            <span class="bg-gray-700 text-xs px-2 py-1 rounded">MySQL</span>
+          </div>
         </div>
-      </div>
-
       </a>
-      
 
       <a href="https://github.com/manasa6sai/ShowOClock" target="_blank" class="block hover:opacity-90 transition duration-300">
+        <div class="bg-[#2b1f2f] rounded-lg shadow-lg p-4 project-card">
+          <img src="https://img.freepik.com/premium-vector/ticket-travel-online-booking-service-app-smartphone-template-hand-drawn-cartoon-flat-illustration_2175-7175.jpg?semt=ais_hybrid" class="rounded-md mb-3 w-full" alt="ShowOClock Platform" />
+          <h3 class="text-lg font-semibold text-red-400">ShowOClock - Ticketing Platform</h3>
+          <p class="text-sm text-gray-300 mb-2">
+            Built a scalable ticket booking platform for events using Python backend and designed user-centric UI with Figma.
+          </p>
+          <div class="flex flex-wrap gap-2 mt-auto">
+            <span class="bg-gray-700 text-xs px-2 py-1 rounded">Python</span>
+            <span class="bg-gray-700 text-xs px-2 py-1 rounded">Figma</span>
+            <span class="bg-gray-700 text-xs px-2 py-1 rounded">MySQL</span>
+            <span class="bg-gray-700 text-xs px-2 py-1 rounded">HTML/CSS</span>
+            <span class="bg-gray-700 text-xs px-2 py-1 rounded">Mongo</span>
+          </div>
+        </div>
+      </a>
 
-      <div class="bg-[#2b1f2f] rounded-lg shadow-lg p-4 project-card">
-        <img src="https://img.freepik.com/premium-vector/ticket-travel-online-booking-service-app-smartphone-template-hand-drawn-cartoon-flat-illustration_2175-7175.jpg?semt=ais_hybrid" class="rounded-md mb-3 w-full" alt="ShowOClock Platform" />
-        <h3 class="text-lg font-semibold text-red-400">ShowOClock - Ticketing Platform</h3>
-        <p class="text-sm text-gray-300 mb-2">
-          Built a scalable ticket booking platform for events using Python backend and designed user-centric UI with Figma.
-        </p>
-        <div class="flex flex-wrap gap-2 mt-auto">
-          <span class="bg-gray-700 text-xs px-2 py-1 rounded">Python</span>
-          <span class="bg-gray-700 text-xs px-2 py-1 rounded">Figma</span>
-          <span class="bg-gray-700 text-xs px-2 py-1 rounded">MySQL</span>
-          <span class="bg-gray-700 text-xs px-2 py-1 rounded">HTML/CSS</span>
-          <span class="bg-gray-700 text-xs px-2 py-1 rounded">Mongo</span>
-
+      <div class="block hover:opacity-90 transition duration-300">
+        <div class="bg-[#1a2634] rounded-lg shadow-lg p-4 project-card relative">
+          <span class="status-badge">In Progress</span>
+          <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?fit=crop&w=600&q=80" class="rounded-md mb-3 w-full" alt="AI Code Assistant" />
+          <h3 class="text-lg font-semibold text-red-400">AI Code Review Assistant</h3>
+          <p class="text-sm text-gray-300 mb-2">
+            Developing an AI-powered code review assistant that provides automated code analysis, best practices suggestions, and security vulnerability detection.
+          </p>
+          <div class="flex flex-wrap gap-2 mt-auto">
+            <span class="bg-gray-700 text-xs px-2 py-1 rounded">Python</span>
+            <span class="bg-gray-700 text-xs px-2 py-1 rounded">LangChain</span>
+            <span class="bg-gray-700 text-xs px-2 py-1 rounded">FastAPI</span>
+            <span class="bg-gray-700 text-xs px-2 py-1 rounded">React</span>
+            <span class="bg-gray-700 text-xs px-2 py-1 rounded">OpenAI</span>
+          </div>
         </div>
       </div>
-
-      </a>
-      
-      
-      
-
     </div>
   </section>
+
+  <script>
+    particlesJS('particles-js', {
+      particles: {
+        number: {
+          value: 100,
+          density: {
+            enable: true,
+            value_area: 1000
+          }
+        },
+        color: {
+          value: ['#e50914', '#ffffff']
+        },
+        shape: {
+          type: ['circle', 'triangle'],
+          stroke: {
+            width: 0,
+            color: '#000000'
+          }
+        },
+        opacity: {
+          value: 0.6,
+          random: true,
+          anim: {
+            enable: true,
+            speed: 1,
+            opacity_min: 0.1,
+            sync: false
+          }
+        },
+        size: {
+          value: 3,
+          random: true,
+          anim: {
+            enable: true,
+            speed: 2,
+            size_min: 0.1,
+            sync: false
+          }
+        },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: '#e50914',
+          opacity: 0.2,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 3,
+          direction: 'none',
+          random: true,
+          straight: false,
+          out_mode: 'out',
+          bounce: false,
+          attract: {
+            enable: true,
+            rotateX: 600,
+            rotateY: 1200
+          }
+        }
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: {
+          onhover: {
+            enable: true,
+            mode: ['grab', 'bubble']
+          },
+          onclick: {
+            enable: true,
+            mode: 'push'
+          },
+          resize: true
+        },
+        modes: {
+          grab: {
+            distance: 140,
+            line_linked: {
+              opacity: 0.8
+            }
+          },
+          bubble: {
+            distance: 200,
+            size: 6,
+            duration: 0.3,
+            opacity: 0.8,
+            speed: 3
+          },
+          push: {
+            particles_nb: 4
+          }
+        }
+      },
+      retina_detect: true
+    });
+  </script>
 </body>
 </html>
